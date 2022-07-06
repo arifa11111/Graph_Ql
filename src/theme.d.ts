@@ -11,6 +11,8 @@ declare module "@mui/material/styles" {
       three?: string;
       four?: string;
       five?: string;
+      six?:string;
+      seven?:string;
     },
     black?: {
         one?: string;
@@ -43,6 +45,8 @@ declare module "@mui/material/styles" {
       three?: string;
       four?: string;
       five?: string;
+      six?: string;
+      seven?:string;
     },
     black?:{
         one?: string;

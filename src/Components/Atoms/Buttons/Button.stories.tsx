@@ -1,8 +1,8 @@
 import { ComponentStory} from "@storybook/react";
-import {ReactComponent as Filter} from "../../../../public/filter.svg";
-import { ButtonComponent} from "./Button";
+import {ReactComponent as Filter} from "../../../images/icons/filter.svg";
+import { ButtonComponent } from ".";
 import {  ArrowForwardOutlined } from "@mui/icons-material";
-import {ReactComponent as Search} from "../../../../public/search.svg";
+import {ReactComponent as Search} from "../../../images/icons/search.svg";
 import {theme} from '../../../Theme/index';
 
 export default {
@@ -10,8 +10,9 @@ export default {
     component: ButtonComponent
 }
 
-const Template:ComponentStory<typeof ButtonComponent> = (args) => ( <ButtonComponent {...args} /> );
-
+const Template: ComponentStory<typeof ButtonComponent> = (args) => (
+    <ButtonComponent {...args} />
+  );
 export const Next = Template.bind({})
     Next.args = {
         variant: 'contained',
@@ -44,8 +45,8 @@ export const Saved = Template.bind({})
         classing:'save'
 }
 
-export const greenCommuteButton = Template.bind({})
-    greenCommuteButton.args = {
+export const GreenCommuteButton = Template.bind({})
+    GreenCommuteButton.args = {
         variant: 'contained',
         endIcon: <ArrowForwardOutlined  />,
         label: 'Green Commute Routes',

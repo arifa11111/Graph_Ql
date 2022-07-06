@@ -14,6 +14,8 @@ const theme = createTheme({
             three: "#4ABAAD",
             four: "#77EDDF",
             five: "#B2FFF6",
+            six:"#30A193",
+            seven:"#EFFFFD",
         },
         black: {
             one: "#373C38",
@@ -79,7 +81,7 @@ const theme = createTheme({
             fontFamily: "Montserrat",
             fontWeight: 700,
             fontSize: "12px",
-            lineHeight: "26px"
+            lineHeight: "12px"
         },
         caption2:{
             fontFamily: "Montserrat",
@@ -88,7 +90,8 @@ const theme = createTheme({
             lineHeight: "26px",
             display: "block",
             letterSpacing:" 0.03333em",
-        }
+        },
+        
     }
 })
 

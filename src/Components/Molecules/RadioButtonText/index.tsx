@@ -1,14 +1,11 @@
-
-
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import { ThemeProvider } from '@mui/styles';
 import { theme } from '../../../Theme';
+import { Typography } from '@mui/material';
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
@@ -27,7 +24,7 @@ const BpIcon = styled('span')(({ theme }) => ({
     outline: '2px auto rgba(19,124,189,.6)',
     outlineOffset: 2,
   },
-  
+
   'input:disabled ~ &': {
     boxShadow: 'none',
     background:
@@ -45,42 +42,38 @@ const BpCheckedIcon = styled(BpIcon)({
     backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
     content: '""',
   },
-  
+
 });
 
-// Inspired by blueprintjs
-const BpRadio=(props: any) =>{
+const BpRadio = (props: any) => {
   return (
-      <ThemeProvider theme={theme}>
-    <Radio
-      
-      disableRipple
-      sx={{color:theme.palette.green?.three}}
-      checkedIcon={<BpCheckedIcon />}
-      icon={<BpIcon />}
-      
-      {...props}
-    />
+    <ThemeProvider theme={theme}>
+      <Radio
+
+        // disableRipple
+        sx={{ color: theme.palette.green?.three }}
+        checkedIcon={<BpCheckedIcon />}
+        icon={<BpIcon />}
+
+        {...props}
+      />
     </ThemeProvider>
   );
 }
 
 export interface RadioProps {
-  label1?:String,
-  label2?:String,
-  }
+  label1?: String,
+  label2?: String,
+}
 
-export default function CustomizedRadios(props:any) {
+export const CustomizedRadios = (props: any) => {
   return (
-    <FormControl>
-      <RadioGroup
-        defaultValue="female"
-        aria-labelledby="demo-customized-radios"
-        name="customized-radios"
-      >
-        <FormControlLabel value="yes" control={<BpRadio />} label={props.label1} />
-        <FormControlLabel value="no" control={<BpRadio />} label={props.label2} />
-        
+    <FormControl data-testid="radioButton">
+      <RadioGroup>
+
+        <FormControlLabel value="yes" checked={true} control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily }}>{props.label1}</Typography>} />
+        <FormControlLabel value="no" checked={false} control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily }}>{props.label2}</Typography>} />
+
       </RadioGroup>
     </FormControl>
   );

@@ -115,3 +115,9 @@ export const cities = [
   { area: "Bangloore" },
   { area: "Chennai" },
 ];
+
+export const distance = ["Distance","0 - 10 Kms", "11 -20 Kms", "21 - 30 Kms","31 - 40 Kms"]; 
+export const datePosted = ["Date Posted","Past 24 hours", "Past week", "Past month","Anytime"]; 
+export const jobType = ["Job Type","Full time", "Internship", "Contract","Remote"]; 
+export const experienceLevel = ["Experience Level","Fresher", "Mid - level", "Director","Executive"]; 
+export const transport = ["Transport","Metro", "Bus", "Car pooling","Motor Cycle"]; 

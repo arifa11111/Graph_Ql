@@ -1,0 +1,29 @@
+.heading {
+  margin-right: 15px;
+}
+.clearAllText {
+  border-radius: 4px;
+  width: 70px;
+  border-style: solid dotted inset double;
+  border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(98, 226, 19)
+    rgb(255, 255, 255);
+}
+.tableDimensions {
+  width: 140px;
+  height: 160px;
+}
+
+.outerBox {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  max-width: 546px;
+  height: 464px;
+}
+.innerBox {
+  max-width: 498px;
+  height: 416px;
+  margin-bottom: 15px;
+  padding-left: 32px;
+  padding-right: 16px;
+}

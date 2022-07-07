@@ -1,14 +1,38 @@
-
-
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 import { ThemeProvider } from '@mui/styles';
 import { theme } from '../../../Theme';
+
+const BpRadio = (props: any) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Radio
+        disableRipple
+        sx={{ color: theme.palette.green?.three }}
+        checkedIcon={<BpCheckedIcon />}
+        icon={<BpIcon />}
+        {...props}
+      />
+    </ThemeProvider>
+  );
+}
+
+export default function CustomizedRadiosAtom() {
+  return (
+    <FormControl data-testid="CheckBox1">
+      <RadioGroup
+        defaultValue="female"
+        aria-labelledby="demo-customized-radios"
+        name="customized-radios" >
+        <FormControlLabel value="yes" control={<BpRadio />} label="" />
+        <FormControlLabel value="no" control={<BpRadio />} label="" />
+      </RadioGroup>
+    </FormControl>
+  );
+}
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
@@ -27,7 +51,7 @@ const BpIcon = styled('span')(({ theme }) => ({
     outline: '2px auto rgba(19,124,189,.6)',
     outlineOffset: 2,
   },
-  
+
   'input:disabled ~ &': {
     boxShadow: 'none',
     background:
@@ -45,41 +69,7 @@ const BpCheckedIcon = styled(BpIcon)({
     backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
     content: '""',
   },
-  
+
 });
 
-// Inspired by blueprintjs
-const BpRadio=(props: any) =>{
-  return (
-      <ThemeProvider theme={theme}>
-    <Radio
-      
-      disableRipple
-      sx={{color:theme.palette.green?.three}}
-      checkedIcon={<BpCheckedIcon />}
-      icon={<BpIcon />}
-      
-      {...props}
-    />
-    </ThemeProvider>
-  );
-}
-
-
-
-export default function CustomizedRadios() {
-  return (
-    <FormControl>
-      <RadioGroup
-        defaultValue="female"
-        aria-labelledby="demo-customized-radios"
-        name="customized-radios"
-      >
-        <FormControlLabel value="yes" control={<BpRadio />} label="" />
-        <FormControlLabel value="no" control={<BpRadio />} label=""  />
-        
-      </RadioGroup>
-    </FormControl>
-  );
-}
 

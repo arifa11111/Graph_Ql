@@ -1,11 +1,12 @@
-import {render, screen} from '@testing-library/react'
-import {Icons} from './index'
+import { render, screen } from '@testing-library/react'
+import { Icons } from '.'
+import BikeIcon from '../../../images/icons/bike.svg'
 
 describe("Display logo", () => {
     test("Should display logo", () => {
-        render(<Icons source={'images/icons/bike.svg'} />)
+        render(<Icons source={BikeIcon} />)
         const logo = screen.getByRole("img")
         expect(logo).toBeInTheDocument()
         expect(logo).toHaveAttribute('alt', 'Logo');
     })
-})
+}) 

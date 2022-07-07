@@ -1,11 +1,12 @@
-import {ComponentStory} from '@storybook/react'
-import CustomizedRadios from '.'
+import { ComponentStory } from '@storybook/react'
+import CustomizedRadiosAtom from '.'
+
 export default {
     title: 'Atoms/RadioButtons',
-    component: CustomizedRadios,  
+    component: CustomizedRadiosAtom,
 }
 
-const Template: ComponentStory <typeof CustomizedRadios> = (args) => < CustomizedRadios  />
+const Template: ComponentStory<typeof CustomizedRadiosAtom> = (args) => < CustomizedRadiosAtom />
 
 export const RadioBtn = Template.bind({})
 RadioBtn.args = {}

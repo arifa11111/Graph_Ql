@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React, { useState } from "react";
@@ -65,13 +66,13 @@ function Sidepane() {
                   <item.icon className={"iconfill"} style={{fill:item.color}}/>
                 </Box>
               </ListItemIcon>
-              <ListItemText primary={item.text} sx={{"& .MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat", color:theme.palette.black?.two}, "&:hover":{color:theme.palette.green?.two}}} />
+              <ListItemText primary={item.text} sx={{"& .MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat", color:theme.palette.black?.two}, "&:hover":{color:theme.palette.green?.two}}} className="textcolor" />
             </ListItem>
           ))}
         </List>
       </Drawer>
       <Box width="220vh" paddingTop="60px">
-        {findPage ? <Box data-testid={"find-box"}>Find Jobs</Box> : <Box data-testid={"saved-box"}>Saved Jobs</Box>}
+        {findPage ? <Box data-testid={"find-box"}><Typography variant="h2">Find Jobs</Typography></Box> : <Box data-testid={"saved-box"}><Typography variant="h2">Saved Jobs</Typography></Box>}
       </Box>
     </Box>
   );
@@ -103,7 +104,10 @@ const useStyles = makeStyles({
         fill: theme.palette.green?.two + " !important",
       },
       "& .textcolor":{
-        color:theme.palette.green?.two + " !important",
+        "& .MuiTypography-root":{
+          color:theme.palette.green?.two + " !important",
+          fontWeight:"600 !important",
+        },
       },
     },
 
@@ -115,7 +119,10 @@ const useStyles = makeStyles({
         fill: theme.palette.green?.two + " !important",
       },
       "& .textcolor":{
-        color:theme.palette.green?.two + " !important",
+        "& .MuiTypography-root":{
+          color:theme.palette.green?.two + " !important",
+          fontWeight:"600 !important",
+        },
       },
     },
 
@@ -137,7 +144,10 @@ const useStyles = makeStyles({
       fill: theme.palette.green?.two + " !important",
     },
     "& .textcolor":{
-      color:theme.palette.green?.two + " !important",
+      "& .MuiTypography-root":{
+        color:theme.palette.green?.two + " !important",
+        fontWeight:"600 !important",
+      },
     },
   },
 

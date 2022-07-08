@@ -12,5 +12,5 @@ chip.args = {
     onDelete:() => {console.log("deleted")},
     label:"10 - 20 Kms",
     size:"medium",
-    sx:{borderRadius:"0px", backgroundColor:"white", height:"32px", maxHeight:"100%", border:"1px solid black"}
+    sx:{borderRadius:"8px", backgroundColor:"white", height:"32px", maxHeight:"100%", border:"1px solid black"}
 }

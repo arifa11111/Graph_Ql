@@ -1,5 +1,6 @@
 import { ComponentStory} from '@storybook/react';
 import Cards from '.';
+import Hp from "../../../images/icons/hp.svg";
 
 export default {
   title: 'Organisms/Cards ',
@@ -12,7 +13,7 @@ const Template: ComponentStory<typeof Cards> = (args) => (
 
 export const smallCards = Template.bind({});
 smallCards.args = {
-  icons:"../../../images/icons/hp.svg",
+  icons: Hp,
   job:"User Experience Designer",
   company:"HP",
   location:"Hyderabad, Telangana, India",

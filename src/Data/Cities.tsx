@@ -6,7 +6,7 @@ import { ReactComponent as News } from "../images/icons/news.svg";
 import { ReactComponent as NeedHelp } from "../images/icons/help.svg";
 import { ReactComponent as Contact } from "../images/icons/contact.svg";
 import { ReactComponent as Settings } from "../images/icons/settings.svg";
-
+import { theme } from "../Theme";
 export const areas = [
   { area: "Ameerpet, Hyderabad, Telangana" },
   { area: "Begumpet, Hyderabad, Telangana" },
@@ -96,17 +96,17 @@ export const areas = [
 ];
 
 export const sideItems = [
-  { text: "Dashboard", icon: Dashboard },
-  { text: "Find Jobs", icon: FindJob },
-  { text: "Saved Jobs", icon: SavedJobs },
-  { text: "Practice Tests", icon: Practice },
-  { text: "News& Events", icon: News },
+  { text: "Dashboard", icon: Dashboard , color: theme.palette.black?.one},
+  { text: "Find Jobs", icon: FindJob , color: theme.palette.black?.two},
+  { text: "Saved Jobs", icon: SavedJobs , color: theme.palette.black?.two },
+  { text: "Practice Tests", icon: Practice , color: theme.palette.black?.three },
+  { text: "News & Events", icon: News , color: theme.palette.black?.three },
 ];
 
 export const extraSide = [
-  { text: "Need Help ?", icon: NeedHelp },
-  { text: "Contact Us", icon: Contact },
-  { text: "Settings", icon: Settings },
+  { text: "Need Help ?", icon: NeedHelp , color: theme.palette.black?.three },
+  { text: "Contact Us", icon: Contact , color: theme.palette.black?.three },
+  { text: "Settings", icon: Settings , color: theme.palette.black?.three },
 ];
 
 export const cities = [

@@ -50,7 +50,7 @@ function Sidepane() {
             >
               <ListItemIcon>
                 <Box className="iconcolor">
-                  <item.icon className={classes.iconroot +" iconfill"} />
+                  <item.icon className={"iconfill"} style={{fill:item.color}}  />
                 </Box>
               </ListItemIcon>
               <ListItemText primary={item.text} sx={{"& .css-3od2m0-MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat"}}} className="textcolor"/>
@@ -62,7 +62,7 @@ function Sidepane() {
             <ListItem button key={key} className={classes.hover}>
               <ListItemIcon>
                 <Box className="iconcolor">
-                  <item.icon className={classes.iconroot +" iconfill"} />
+                  <item.icon className={"iconfill"} style={{fill:item.color}}/>
                 </Box>
               </ListItemIcon>
               <ListItemText primary={item.text} sx={{"& .css-3od2m0-MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat"}, "&:hover":{color:theme.palette.green?.two}}} />
@@ -100,22 +100,22 @@ const useStyles = makeStyles({
         backgroundColor: "transparent !important",
       },
       "& .iconfill": {
-        fill: theme.palette.green?.two,
+        fill: theme.palette.green?.two + " !important",
       },
       "& .textcolor":{
-        color:theme.palette.green?.two,
+        color:theme.palette.green?.two + " !important",
       },
     },
 
     "&:active": {
       backgroundColor: theme.palette.green?.seven + " !important",
-      borderRight: "4px solid " + theme.palette.green?.two,
+      borderRight: "4px solid " + theme.palette.green?.two ,
       borderRadius: "4px",
       "& .iconfill": {
-        fill: theme.palette.green?.two,
+        fill: theme.palette.green?.two + " !important",
       },
       "& .textcolor":{
-        color:theme.palette.green?.two,
+        color:theme.palette.green?.two + " !important",
       },
     },
 
@@ -134,15 +134,11 @@ const useStyles = makeStyles({
       backgroundColor: "transparent !important",
     },
     "& .iconfill": {
-      fill: theme.palette.green?.two,
+      fill: theme.palette.green?.two + " !important",
     },
     "& .textcolor":{
-      color:theme.palette.green?.two,
+      color:theme.palette.green?.two + " !important",
     },
-  },
-
-  iconroot: {
-    fill: theme.palette.black?.one,
   },
 
 });

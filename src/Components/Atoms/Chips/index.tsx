@@ -16,7 +16,7 @@ interface ChipProps{
   | 'success'
   | 'warning',
   component?:ElementType,
-  deleteIcon?: ReactElement,
+  deleteIcon?: ReactElement,  
   disabled?: boolean,
   icon?: ReactElement,
   label?: ReactNode,

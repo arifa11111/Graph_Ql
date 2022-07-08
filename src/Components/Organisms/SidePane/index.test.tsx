@@ -34,5 +34,5 @@ it("Side Pane Dashboard Click Test",() => {
     const SideElement = screen.getByTestId("button-test-0");
     fireEvent.click(SideElement);
     const SideAfterFireElement = screen.getByTestId("find-box");
-    expect(SideAfterFireElement).toHaveTextContent("Find Jobs");
+    expect(SideAfterFireElement).toHaveTextContent("Find Jobs"); 
 })

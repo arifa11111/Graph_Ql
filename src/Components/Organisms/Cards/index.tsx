@@ -49,12 +49,12 @@ function Cards(props: Props) {
             <Icons source={props.icons} height="45px" width="45px" />
             {large ? (
               <Box sx={{ paddingLeft: "23px" }} data-testid="large-active">
-                <Box>
+                <Box paddingBottom={"4px"}>
                   <Typography variant="h2" color={theme.palette.black?.one}>
                     {props.job}
                   </Typography>
                 </Box>
-                <Box>
+                <Box paddingBottom={"4px"}>
                   <Typography
                     variant="caption2"
                     color={theme.palette.accent?.two}
@@ -79,12 +79,12 @@ function Cards(props: Props) {
         </Box>
         {!large ? (
           <Box className={classes.smallmiddleCon} data-testid="small-active">
-            <Box>
+            <Box paddingBottom={"4px"}>
               <Typography variant="subtitle1" color={theme.palette.black?.one}>
                 {props.job}
               </Typography>
             </Box>
-            <Box>
+            <Box paddingBottom={"4px"}>
               <Typography variant="caption2" color={theme.palette.accent?.two}>
                 {props.company}
               </Typography>
@@ -102,7 +102,7 @@ function Cards(props: Props) {
           <Box className={large ? classes.largeBCFT : undefined}>
             {!large ? (
               <Box>
-                <Typography variant="caption2" color={theme.palette.black?.one}>
+                <Typography variant="caption2" color={theme.palette.black?.one} width="167px" letterSpacing={"0"}>
                   Commute routes available :
                 </Typography>
               </Box>
@@ -127,9 +127,11 @@ function Cards(props: Props) {
               large ? classes.largebottomConSec : classes.smallbottomConSec
             }
           >
-            <Typography variant="caption2" color={theme.palette.black?.one}>
+            <Box paddingTop={large? "16px" : "9px"} >
+            <Typography variant="caption2" color={theme.palette.black?.one}  letterSpacing={"0"}>
               {props.postedTime}
             </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -160,7 +162,7 @@ const useStyles = makeStyles({
   smallbottomCon: {
     display: "flex",
     justifyContent: "space-between",
-    paddingTop: "19px",
+    paddingTop: "32px",
     width: "100%",
   },
   smallbottomConFirst: {
@@ -168,6 +170,7 @@ const useStyles = makeStyles({
     maxWidth: "135.5px",
     display: "flex",
     justifyContent: "space-between",
+    paddingTop:"11.5px"
   },
   smallbottomConSec: {
     paddingTop: "24px",
@@ -188,7 +191,7 @@ const useStyles = makeStyles({
   largebotttomCon: {
     display: "flex",
     justifyContent: "space-between",
-    paddingTop: "19px",
+    paddingTop: "25px",
     paddingLeft: "68px",
   },
   largeBCFT: {

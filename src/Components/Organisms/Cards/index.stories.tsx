@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { ComponentStory} from '@storybook/react';
 import Cards from '.';
 import Hp from "../../../images/icons/hp.svg";
@@ -8,7 +9,7 @@ export default {
 }
 
 const Template: ComponentStory<typeof Cards> = (args) => (
-  <Cards {...args} />
+  <Box sx={{backgroundColor:"#E5E5E5", height:"100vh"}}><Cards {...args} /></Box>
 );
 
 export const smallCards = Template.bind({});
@@ -27,7 +28,7 @@ smallCards.args = {
 
 export const largeCards = Template.bind({});
 largeCards.args = {
-  icons:"../../../images/icons/hp.svg",
+  icons:Hp,
   job:"User Experience Designer",
   company:"HP",
   location:"Hyderabad, Telangana, India",

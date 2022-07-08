@@ -50,10 +50,10 @@ function Sidepane() {
             >
               <ListItemIcon>
                 <Box className="iconcolor">
-                  <item.icon className={"iconfill"} style={{fill:item.color}}  />
+                  <item.icon className={"iconfill"} style={{fill:item.color}}/>
                 </Box>
               </ListItemIcon>
-              <ListItemText primary={item.text} sx={{"& .css-3od2m0-MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat"}}} className="textcolor"/>
+              <ListItemText primary={item.text} sx={{"& .MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat", color:theme.palette.black?.two}}} className="textcolor"/>
             </ListItem>
           ))}
           <Divider variant="middle" sx={{ paddingTop: "8px" }} />
@@ -65,7 +65,7 @@ function Sidepane() {
                   <item.icon className={"iconfill"} style={{fill:item.color}}/>
                 </Box>
               </ListItemIcon>
-              <ListItemText primary={item.text} sx={{"& .css-3od2m0-MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat"}, "&:hover":{color:theme.palette.green?.two}}} />
+              <ListItemText primary={item.text} sx={{"& .MuiTypography-root":{ fontWeight:"500 !important", fontFamily:"Montserrat", color:theme.palette.black?.two}, "&:hover":{color:theme.palette.green?.two}}} />
             </ListItem>
           ))}
         </List>

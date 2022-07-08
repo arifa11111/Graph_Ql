@@ -145,7 +145,7 @@ const useStyles = makeStyles({
     height: "271px",
     width: "100%",
     borderRadius: "12px",
-    boxShadow: "0px 3px 3px " + theme.palette.gray?.one,
+    backgroundColor:"white",
   },
   smallCardInner: {
     padding: "16px 17.5px",
@@ -170,7 +170,7 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
   },
   smallbottomConSec: {
-    paddingTop: "16px",
+    paddingTop: "23px",
   },
   largeCard: {
     maxWidth: "571px",
@@ -179,6 +179,7 @@ const useStyles = makeStyles({
     width: "100%",
     borderRadius: "12px",
     boxShadow: "0px 3px 3px " + theme.palette.gray?.one,
+    backgroundColor:"white",
   },
   largetopCon: {
     display: "flex",

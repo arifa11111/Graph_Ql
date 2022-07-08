@@ -29,7 +29,6 @@ export default function HomePageStepper() {
 
   return (
     <>
-
       <Box sx={{ width: '100%' }}>
         <Stepper data-testid="stepper" connector={null} activeStep={activeStep}>
           {steps.map((label, index) => {
@@ -41,31 +40,74 @@ export default function HomePageStepper() {
             return (
 
               <Step key={label} sx={{
-                paddingLeft: "32px",
+
                 '& .MuiStepLabel-root .Mui-completed': {
                   color: theme.palette.green?.three, // circle color (COMPLETED)
-
+                  fontWeight: theme.typography.subtitle1.fontWeight,
+                  height: "40px"
                 },
+
                 '& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel':
                 {
                   color: theme.palette.green?.three, // Just text label (COMPLETED)
-                  fontFamily: theme.typography.h1.fontFamily
+                  fontFamily: theme.typography.subtitle1.fontFamily,
+                  fontWeight: theme.typography.subtitle1.fontWeight,
                 },
+
                 '& .MuiStepLabel-root .Mui-active': {
-                  color: theme.palette.green?.three, // circle color (ACTIVE)
+                  color: theme.palette.green?.three,
+                  fontFamily: theme.typography.subtitle1.fontFamily,
+                  fontWeight: theme.typography.subtitle1.fontWeight,// circle color (ACTIVE)
                 },
-                '& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel':
+
+                '& .MuiStepLabel-label .Mui-active.MuiStepLabel-alternativeLabel':
                 {
                   color: theme.palette.green?.three, // Just text label (ACTIVE)
-                  fontFamily: theme.typography.h1.fontFamily
+                  fontFamily: theme.typography.subtitle1.fontFamily,
+                  fontWeight: theme.typography.subtitle1.fontWeight,
                 },
 
                 '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {
                   fill: 'white', // circle's number (ACTIVE)
-                  fontFamily: theme.typography.h1.fontFamily
+                  fontFamily: theme.typography.subtitle1.fontFamily,
+                  fontWeight: theme.typography.subtitle1.fontWeight,
+                  width: "7px"
                 },
 
+                "&  .Mui-disabled":
+                {
+                  fontFamily: theme.typography.subtitle1.fontFamily,
+                  fontWeight: theme.typography.subtitle1.fontWeight,
+                },
 
+                /* disable stepper label text color */
+                "& .css-16ubnlw-MuiStepLabel-labelContainer":
+                {
+                  color: "#373C38"
+                },
+
+                /*circle size */
+                "& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root": {
+                  fontSize: "40px",
+                  color: "#F7F7F7",
+                  fontWeight: theme.typography.subtitle2.fontWeight,
+                },
+
+                /* disable stepper inner text color */
+                "& .css-117w1su-MuiStepIcon-text": {
+                  fill: "#373C38"
+                },
+
+                "& .span.MuiStepLabel-label.Mui-completed.css-qivjh0-MuiStepLabel-label": {
+                  width: "100px",
+                },
+
+                /* finished circle label dimensions */
+                "& .css-qivjh0-MuiStepLabel-label": {
+                  fontFamily: theme.typography.subtitle1.fontFamily,
+                  lineHeight: "2.9"
+                }
+                
               }}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
               </Step>
@@ -132,14 +174,13 @@ const useStyles = makeStyles({
     height: "46px",
     borderStyle: "solid",
     borderRadius: "8px",
-    backgroundColor: theme.palette.green?.six,
+    backgroundColor: theme.palette.green?.six + " !important",
     borderColor: theme.palette.green?.six,
     color: theme.palette.light?.four,
     "&:hover": {
-      backgroundColor: theme.palette.green?.six,
+      backgroundColor: theme.palette.green?.six + " !important",
       color: theme.palette.light?.four
     },
     textTransform: "none"
   },
 })
-

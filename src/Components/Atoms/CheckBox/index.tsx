@@ -1,31 +1,26 @@
 import { Checkbox } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import './index.css';
 
 export interface checkBoxprops {
-    checked?: Boolean,
-    onChange?: () => void,
+    checked?: boolean,
+    onChange?: (e: React.SyntheticEvent) => void,
     value?: string
 }
 
-export const CheckBox = (props: any) => {
-    let styles = useStyles()
+export const CheckBox = (props: checkBoxprops) => {
     const { checked, onChange, value } = props
-    return <Checkbox data-testid="CheckBox" checked={checked} onChange={onChange} value={value} className="sample" sx={{
-        color: "#D6D6D6",
-        '&.Mui-checked': {
-            color: "#30A193",
-        },
-    }} />
+    return <Checkbox data-testid="CheckBox" checked={checked}
+         onChange={onChange} value={value} className="css-ejr8v6-MuiButtonBase-root-MuiCheckbox-root" 
+         sx={{
+            color: "#D6D6D6",
+            borderWidth:"1px" + " !important",
+            '&.Mui-checked': {
+                color: "#30A193",
+            },
+            paddingRight:"8px",
+            paddingTop:"10px"
+            }} />
 }
-const useStyles = makeStyles({
-    mainn: {
-        borderColor: "#D6D6D6",
-        width: "16px",
-        height: "16px",
-        borderRadius: "4px"
-    }
-})
 
 
 

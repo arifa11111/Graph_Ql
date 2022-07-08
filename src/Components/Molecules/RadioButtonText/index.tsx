@@ -49,12 +49,9 @@ const BpRadio = (props: any) => {
   return (
     <ThemeProvider theme={theme}>
       <Radio
-
-        // disableRipple
         sx={{ color: theme.palette.green?.three }}
         checkedIcon={<BpCheckedIcon />}
         icon={<BpIcon />}
-
         {...props}
       />
     </ThemeProvider>
@@ -66,16 +63,17 @@ export interface RadioProps {
   label2?: String,
 }
 
-export const CustomizedRadios = (props: any) => {
+export const CustomizedRadios = (props: RadioProps) => {
   return (
     <FormControl data-testid="radioButton">
       <RadioGroup>
 
-        <FormControlLabel value="yes" checked={true} control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily }}>{props.label1}</Typography>} />
-        <FormControlLabel value="no" checked={false} control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily }}>{props.label2}</Typography>} />
+        <FormControlLabel sx={{ paddingTop: "15px", paddingBottom: "8px" }} className='firstRadioButton' value="yes" checked={true} control={<BpRadio />} label={<Typography variant="body2"
+            style={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily, fontSize: "16px", fontWeight: theme.typography.body2.fontWeight }}>{props.label1}</Typography>} />
+        <FormControlLabel className='secondRadioButton' value="no" checked={false} control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two,
+            fontFamily: theme.typography.h1.fontFamily, fontSize: "16px", fontWeight: theme.typography.body2.fontWeight }}>{props.label2}</Typography>} />
 
       </RadioGroup>
     </FormControl>
   );
 }
-

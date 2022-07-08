@@ -127,11 +127,9 @@ function Cards(props: Props) {
               large ? classes.largebottomConSec : classes.smallbottomConSec
             }
           >
-            <Box paddingTop={large? "16px" : "9px"} >
             <Typography variant="caption2" color={theme.palette.black?.one}  letterSpacing={"0"}>
               {props.postedTime}
             </Typography>
-            </Box>
           </Box>
         </Box>
       </Box>
@@ -170,10 +168,9 @@ const useStyles = makeStyles({
     maxWidth: "135.5px",
     display: "flex",
     justifyContent: "space-between",
-    paddingTop:"11.5px"
   },
   smallbottomConSec: {
-    paddingTop: "24px",
+    paddingTop: "16px",
   },
   largeCard: {
     maxWidth: "571px",

@@ -8,5 +8,5 @@ it('renders images', () => {
 
   const image = screen.getByRole('img');
   expect(image).toHaveAttribute('src', 'mapview.png');
-  expect(image).toHaveAttribute('alt', 'mapview.png');
+  expect(image).toHaveAttribute('alt', 'loading...');
 });

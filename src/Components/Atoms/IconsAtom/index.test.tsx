@@ -9,4 +9,4 @@ describe("Display logo", () => {
         expect(logo).toBeInTheDocument()
         expect(logo).toHaveAttribute('alt', 'Logo');
     })
-}) 
+})

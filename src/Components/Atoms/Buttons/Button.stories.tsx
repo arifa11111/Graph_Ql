@@ -42,7 +42,7 @@ export const Saved = Template.bind({})
     Saved.args = {
         variant: 'outlined',
         label: 'Saved',
-        classing:'save'
+        classing:'save',
 }
 
 export const GreenCommuteButton = Template.bind({})
@@ -81,8 +81,8 @@ export const filterButton = Template.bind({})
         }
 }
 
-export const searchIconButton = Template.bind({})
-    searchIconButton.args = {
+export const IconButton = Template.bind({})
+    IconButton.args = {
         variant: 'contained',
         startIcon: <div style={{paddingLeft:'10px',paddingTop:'10px'}}><Search /></div>,
         classing:'iconBtn',

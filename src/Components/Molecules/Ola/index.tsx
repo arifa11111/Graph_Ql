@@ -11,10 +11,10 @@ interface MyProps {
 const useStyles = makeStyles({
     felxClass:{
         display:"flex",
+        backgroundColor:theme.palette.light?.four,
     },
-
     mainBox:{
-        maxWidth:"359px",
+        maxWidth:"357px",
         boxShadow: "0px 2px 8px rgba(125, 125, 125, 0.12)",
         width:"100%",
         height:"60px",
@@ -32,17 +32,17 @@ const useStyles = makeStyles({
 
 export const OlaCard = (props:MyProps) =>{
     const classes = useStyles();
-
         return(
                 <Box className= {classes.felxClass + " " + classes.mainBox}>
                     <Box className= {classes.felxClass}>
-                        <Box sx={{paddingTop:'8px'}}><Icons source={props.Icon} height={'40px'} width={'40px'} /></Box>
+                        <Box sx={{paddingTop:'8px',paddingLeft:'8px'}}><Icons source={props.Icon} height={'40px'} width={'40px'} /></Box>
                         <Box>
-                            <Box>
+                            <Box sx={{paddingLeft:'5px'}}>
                             <Typography variant='caption'>Ola</Typography>
                             </Box>
                             <Box className= {classes.felxClass}>
-                            <Typography variant='caption2'>Approximately</Typography> <Icons source={rupee} height={'26px'} width={'20px'} /> <Typography variant='caption2'>45</Typography>
+                            <Typography variant='caption2' sx={{color:'#656e66',width:'89px',paddingLeft:'5px'}}>Approximately  </Typography>
+                            <div><Icons source={rupee} height={'9px'} width={'10px'} style={{padding:'0px 2px 4px 27px'}} /> </div><Typography variant='caption2'>45</Typography>
                             </Box>
                         </Box>
                     </Box>

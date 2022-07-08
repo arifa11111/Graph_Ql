@@ -1,7 +1,6 @@
-import React from 'react';
+import {theme} from "../../../Theme/index"
 
-
-export interface MyProps  {
+interface MyProps  {
   src: string,
   height: number,
   width: number,
@@ -13,12 +12,11 @@ const Image = (props: MyProps) => {
     maxWidth: props.width,
     width:'100%',
     borderRadius:'8px',
-    
+    background: theme.palette.light?.linearOne
 };
 
-
   return (
-    <img src={props.src} style={styles} alt={props.src}></img>
+    <img src={props.src} style={styles} alt={"loading..."} ></img>
   );
 };
 export default Image;

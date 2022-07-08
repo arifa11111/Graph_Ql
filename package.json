@@ -62,11 +62,7 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "coveragePathIgnorePatterns": [
-      ".stories.tsx"
-    ]
-  },
+
   "devDependencies": {
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
@@ -87,7 +83,8 @@
       "^.*.(stories.tsx)$",
       "src/Theme/index.tsx",
       "src/index.tsx",
-      "src/reportWebVitals.ts"
+      "src/reportWebVitals.ts",
+      "App.tsx"
     ]
   }
 }

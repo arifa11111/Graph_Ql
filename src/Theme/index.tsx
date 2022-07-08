@@ -81,7 +81,7 @@ const theme = createTheme({
             fontFamily: "Montserrat",
             fontWeight: 700,
             fontSize: "12px",
-            lineHeight: "26px"
+            lineHeight: "12px"
         },
         caption2:{
             fontFamily: "Montserrat",
@@ -90,7 +90,8 @@ const theme = createTheme({
             lineHeight: "26px",
             display: "block",
             letterSpacing:" 0.03333em",
-        }
+        },
+        
     }
 })
 

@@ -1,6 +1,6 @@
 import { ComponentStory} from "@storybook/react";
 import {ReactComponent as Filter} from "../../../images/icons/filter.svg";
-import { ButtonComponent } from ".";
+import { ButtonComponent } from "./Button";
 import {  ArrowForwardOutlined } from "@mui/icons-material";
 import {ReactComponent as Search} from "../../../images/icons/search.svg";
 import {theme} from '../../../Theme/index';

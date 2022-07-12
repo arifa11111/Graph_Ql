@@ -1,4 +1,4 @@
-import { Grid,Box, Typography, Divider, Card} from "@mui/material"
+import { Grid,Box, Typography, Divider} from "@mui/material"
 import { Icons } from "../../Atoms/IconsAtom"
 import {theme} from "../../../Theme/index"
 import more from "../../../images/icons/more.svg";
@@ -19,6 +19,7 @@ import {Location} from "../../Molecules/LocationDescription/index"
 import {OlaCard} from "../../Molecules/Ola/index"
 import Image from "../../Molecules/MapView/Map";
 import MapView from "../../../images/icons/mapview.svg"
+import greyRupee from "../../../images/icons/greyrupee.svg"
 
 interface descProps{
     icon?:string,
@@ -93,7 +94,7 @@ export const DescCard = (props:descProps) =>{
                                                 transform:'translate(-22.2px,26px)',
                                                 borderRadius: '0px 0px 12px 12px' }} />
                 </Grid> ) : (
-                    <Grid className="grid2">
+                    <Grid className="routes">
                         <Box sx={{display:'flex'}}><Icons source={back} width={'24px'} height={'24px'} onClick={()=>setChangediv(1)} />
                             <Typography variant='body1' sx={{paddingLeft:'5px'}}>Common Routes </Typography> </Box>
                         <Box sx={{paddingTop:'10px'}}><Location /> </Box>
@@ -105,11 +106,11 @@ export const DescCard = (props:descProps) =>{
                         </Box>
                         <Divider />
                         <Typography variant='body2' style={{paddingTop:'28px'}}>Catch a blue line metro towards Raidurg</Typography>
-                        {routes ? ( <><Box className='hrs'><div style={{transform:'translate(10px,1px)',fill:'grey'}}><Icons source={rupee} height={'9px'} width={'10px'} /> </div>100 <span className='dot'></span>25 Kms<span ></span>1 hr 20 mins</Box>
+                        {routes ? ( <><Box className='hrs'><div style={{transform:'translate(10px,1px)'}}><Icons source={greyRupee} height={'9px'} width={'10px'} /> </div>100 <span className='dot'></span>25 Kms<span ></span>1 hr 20 mins</Box>
                                         <Box className='cards'>
                                             <OlaCard Icon={ola} /><OlaCard Icon={uber} /><OlaCard Icon={rapido} /></Box></>)
                                  : (<>
-                                    <Box className='hrs'><div style={{transform:'translate(10px,1px)'}}><Icons source={rupee} height={'9px'} width={'10px'} /> </div>100 <span className='dot'></span>25 Kms<span className='dot'></span>1 hr 20 mins</Box>                     
+                                    <Box className='hrs'><div style={{transform:'translate(10px,1px)'}}><Icons source={greyRupee} height={'9px'} width={'10px'} /> </div>100 <span className='dot'></span>25 Kms<span className='dot'></span>1 hr 20 mins</Box>                     
                                      <Box sx={{paddingTop:'10px'}}><Image src={MapView} width={361} height={147}  />
                                          <Typography variant='caption' sx={{color:theme.palette.green?.six,wordSpacing:'1px'}}>View in Google Maps</Typography> </Box></>
                                  )}

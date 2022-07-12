@@ -7,7 +7,7 @@ import { theme } from '../../../Theme'
 
 export const Location = () => {
   return (
-    <Box className='outerBox' style={{display:"flex",justifyContent:"space-around"}}>
+    <Box className='outerBoxLoc' style={{display:"flex",justifyContent:"space-around"}}>
         <Grid sx={{display:"flex",flexDirection:"column",justifyContent:"center",marginLeft:'-10px'}}>
             <Grid style={{display:"flex",alignItems:"center"}}>
                 <CurrentLocation style={{paddingLeft:"1px"}} data-testid='currentLoc' />

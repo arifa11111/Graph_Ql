@@ -12,7 +12,6 @@ import "./index.css"
 const steps = ['Your Location', 'Job Location', 'Your Skills'];
 
 export default function HomePageStepper() {
-
   const styles = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
@@ -29,7 +28,7 @@ export default function HomePageStepper() {
 
   return (
     <>
-      <Box sx={{ width: '100%' }}>
+      <Box sx={{ width: '100%',padding:'0px 8px 0px 8px' }}>
         <Stepper data-testid="stepper" connector={null} activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps: { completed?: boolean } = {};
@@ -38,9 +37,7 @@ export default function HomePageStepper() {
             } = {};
 
             return (
-
               <Step key={label} sx={{
-
                 '& .MuiStepLabel-root .Mui-completed': {
                   color: theme.palette.green?.three, // circle color (COMPLETED)
                   fontWeight: theme.typography.subtitle1.fontWeight,
@@ -83,7 +80,9 @@ export default function HomePageStepper() {
                 /* disable stepper label text color */
                 "& .css-16ubnlw-MuiStepLabel-labelContainer":
                 {
-                  color: "#373C38"
+                  height:"20px",
+                  color: "#373C38",
+
                 },
 
                 /*circle size */
@@ -94,7 +93,7 @@ export default function HomePageStepper() {
                 },
 
                 /* disable stepper inner text color */
-                "& .css-117w1su-MuiStepIcon-text": {
+                "& .MuiStepIcon-text": {
                   fill: "#373C38"
                 },
 
@@ -106,8 +105,9 @@ export default function HomePageStepper() {
                 "& .css-qivjh0-MuiStepLabel-label": {
                   fontFamily: theme.typography.subtitle1.fontFamily,
                   lineHeight: "2.9"
-                }
+                },
                 
+
               }}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
               </Step>
@@ -115,27 +115,25 @@ export default function HomePageStepper() {
           })}
         </Stepper>
 
-        {activeStep === 0 && <Box data-testid="box1"><Typography variant={"h1"} >page 1</Typography></Box>}
-        {activeStep === 1 && <Box data-testid="box2"><Typography variant={"h1"} >page 2</Typography></Box>}
-        {activeStep === 2 && <Box data-testid="box3"><Typography variant={"h1"} >page 3</Typography></Box>}
+      <Box data-testid="box1" sx={{width:'540px',paddingTop:'53px'}}><Typography variant={"h1"} >More than 2000 people are using Green Commute</Typography></Box>
+
         {activeStep === steps.length ? (
           <React.Fragment>
 
-            <Typography sx={{ mt: 2, mb: 1 }}>
+            {/* <Typography sx={{ mt: 2, mb: 1 }}>
               navigates to findjobs page
-            </Typography>
+            </Typography> */}
 
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 7 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 7 ,transform:'translateY(142px)'}}>
 
-              <Button data-testid="btnBack" variant={"outlined"} className={styles.backButton}
-                disabled={activeStep === 0}
+              {activeStep !==0 && <Button data-testid="btnBack" variant={"outlined"} className={styles.backButton}
                 onClick={handleBack}
                 style={{ marginRight: "8px" }} >
                 Back
-              </Button>
+              </Button>}
 
               <Button data-testid="btnNext" variant={"contained"} className={styles.nextButton} onClick={handleNext}>
                 Next
@@ -145,7 +143,7 @@ export default function HomePageStepper() {
           </React.Fragment>
         )}
       </Box>
-      <Typography variant="subtitle1" className='skipText' sx={{ color: theme.palette.green?.six, fontFamily: theme.typography.body1 }}>Skip</Typography>
+      <Typography variant="subtitle1" className='skipText' sx={{ color: theme.palette.green?.six, fontFamily: theme.typography.body1,transform:"translateY(160px)" }}>Skip</Typography>
     </>
   );
 }

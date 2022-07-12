@@ -15,7 +15,7 @@ describe('<Stepper tests>', () => {
     render(<HomePageStepper />);
     const nextStepperBtn = screen.getByTestId('btnNext');
     fireEvent.click(nextStepperBtn);
-    const textElement = screen.getByTestId('box2');
+    const textElement = screen.getByTestId('box1');
     expect(textElement).toBeInTheDocument();
   });
 

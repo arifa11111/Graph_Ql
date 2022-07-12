@@ -52,17 +52,19 @@ const data = {
   ],
 };
 
+const baseUrl = "http://localhost:3001/api";
+
 export const handlers = [
-  rest.get("http://localhost:3001/api/cards", (req, res, ctx) => {
+  rest.get(baseUrl+"/cards", (req, res, ctx) => {
     return res(ctx.json(data));
   }),
 
-  rest.get("http://localhost:3001/api/card", (req, res, ctx) => {
+  rest.get(baseUrl+"/card", (req, res, ctx) => {
       const cardId = req.url.searchParams.get('id');
       return res(ctx.json(data.cards.at(cardId)));
   }),
 
-  rest.patch("http://localhost:3001/api/card/:id", (req, res, ctx) => {
+  rest.patch(baseUrl+"/card/:id", (req, res, ctx) => {
     const { id } = req.params;
     console.log(id)
     data.cards = data.cards.map( card => {

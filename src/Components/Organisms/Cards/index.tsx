@@ -30,6 +30,7 @@ function Cards(props: Props) {
     <Box
       className={large ? wholeBorder : classes.smallCard}
       data-testid="card-contain"
+      sx={{backgroundColor:"white"}}
       onClick={() => {
         if (!large) {
           setLarge(!large);

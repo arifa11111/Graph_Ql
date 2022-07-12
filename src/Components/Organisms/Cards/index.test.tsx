@@ -67,7 +67,7 @@ it("Large Card Fire test", () => {
     const cardElement = screen.getByTestId("card-contain");
     fireEvent.click(cardElement);
     const FireElement = screen.getByTestId("card-contain");
-    expect(FireElement.className).toBe("makeStyles-largeCard-47 makeStyles-clickBorder-52 MuiBox-root css-0");
+    expect(FireElement.classList.contains("makeStyles-clickBorder-52")).toBe(true);
 });
 
 it("Large Card Double click Fire test", () => {
@@ -87,7 +87,7 @@ it("Large Card Double click Fire test", () => {
     const FireElement = screen.getByTestId("card-contain");
     fireEvent.click(FireElement);
     const LargeNoBorderFireElement = screen.getByTestId("card-contain");
-    expect(LargeNoBorderFireElement.className).toBe("makeStyles-largeCard-60 MuiBox-root css-0");
+    expect(LargeNoBorderFireElement.classList.contains("makeStyles-largeCard-60")).toBe(true);
 });
 
 it("Card Icons test", () => {

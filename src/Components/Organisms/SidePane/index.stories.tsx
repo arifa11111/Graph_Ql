@@ -6,8 +6,8 @@ export default {
   component: Sidepane,
 }
 
-const Template: ComponentStory<typeof Sidepane> = () => (
-  <Sidepane/>
+const Template: ComponentStory<typeof Sidepane> = (args) => (
+  <Sidepane {...args}/>
 );
 
 export const sidePane = Template.bind({});

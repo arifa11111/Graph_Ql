@@ -81,20 +81,19 @@ export default function HomePageStepper() {
                 "& .css-16ubnlw-MuiStepLabel-labelContainer":
                 {
                   height:"20px",
-                  color: "#373C38",
-
+                  color: theme.palette.black?.one
                 },
 
                 /*circle size */
                 "& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root": {
                   fontSize: "40px",
-                  color: "#F7F7F7",
+                  color:  theme.palette.gray?.three,
                   fontWeight: theme.typography.subtitle2.fontWeight,
                 },
 
                 /* disable stepper inner text color */
                 "& .MuiStepIcon-text": {
-                  fill: "#373C38"
+                  fill: theme.palette.black?.one
                 },
 
                 "& .span.MuiStepLabel-label.Mui-completed.css-qivjh0-MuiStepLabel-label": {

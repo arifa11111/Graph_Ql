@@ -14,6 +14,7 @@ interface ButtonProps {
     onClick?: () => void;
     disabled?: boolean;
     classing?:string;
+    className?:string;
 }
 
 export const ButtonComponent = (props: ButtonProps) => {

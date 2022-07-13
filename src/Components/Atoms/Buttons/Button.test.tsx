@@ -1,7 +1,7 @@
 import { render, screen,fireEvent } from "@testing-library/react";
-import {ReactComponent as Filter} from "../../../../public/filter.svg";
+import {ReactComponent as Filter} from "../../../images/icons/filter.svg";
 import { ButtonComponent } from "./Button";
-import {ReactComponent as Search} from "../../../../public/search.svg";
+import {ReactComponent as Search} from "../../../images/icons/search.svg";
 import { ArrowForwardOutlined } from "@mui/icons-material";
 
     it("Next Button", () => {

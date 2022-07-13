@@ -17,7 +17,7 @@ it('buttons should render', () => {
     description()
     const button = screen.getAllByRole('button')[0] as HTMLButtonElement
     expect(button).toBeInTheDocument()
-    fireEvent.click(button); 
+    fireEvent.click(button)
 })
 
 it('Icons should render' , ()=>{
@@ -26,6 +26,11 @@ it('Icons should render' , ()=>{
     expect(icon).toBeInTheDocument()
 })
 
+// it('routes button should render' ,() => {
+//     description()
+//     const btn=screen.getByTestId('routesBtn')
+//     expect(btn).toBeInTheDocument()
+// })
 
 it('description text should render' ,() => {
     description()

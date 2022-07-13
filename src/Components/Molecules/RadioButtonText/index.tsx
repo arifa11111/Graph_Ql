@@ -63,17 +63,27 @@ export interface RadioProps {
   label2?: String,
 }
 
+export interface RadioProps{
+  onChange?: (e: React.SyntheticEvent) => any,
+}
+
 export const CustomizedRadios = (props: RadioProps) => {
+  const { onChange } = props
+
   return (
     <FormControl data-testid="radioButton">
-      <RadioGroup>
+      <RadioGroup
+      defaultValue="yes"
+      aria-labelledby="demo-customized-radios"
+      name="customized-radios">
 
-        <FormControlLabel sx={{ paddingTop: "15px", paddingBottom: "8px" }} className='firstRadioButton' value="yes" checked={true} control={<BpRadio />} label={<Typography variant="body2"
+        <FormControlLabel id="YesId" onChange={onChange}  sx={{ paddingTop: "15px", paddingBottom: "8px" }}  className='firstRadioButton' value="yes" control={<BpRadio />} label={<Typography variant="body2"
             style={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily, fontSize: "16px", fontWeight: theme.typography.body2.fontWeight }}>{props.label1}</Typography>} />
-        <FormControlLabel className='secondRadioButton' value="no" checked={false} control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two,
+        <FormControlLabel id="NoId" onChange={onChange} className='secondRadioButton' value="no" control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two,
             fontFamily: theme.typography.h1.fontFamily, fontSize: "16px", fontWeight: theme.typography.body2.fontWeight }}>{props.label2}</Typography>} />
 
       </RadioGroup>
     </FormControl>
   );
 }
+

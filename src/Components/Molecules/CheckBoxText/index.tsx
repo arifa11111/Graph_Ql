@@ -1,6 +1,6 @@
 import { FormControlLabel, FormGroup, Typography } from '@mui/material'
 import { theme } from '../../../Theme'
-import { CheckBox } from '../../Atoms/CheckBox'
+import { CheckBox } from '../../Atoms/CheckBox';
 
 export interface CheckBoxTextProps {
   label?: string,
@@ -13,7 +13,7 @@ export const CheckBoxText = (props: CheckBoxTextProps) => {
   return (
     <div>
       <FormGroup>
-        <FormControlLabel
+        <FormControlLabel 
           value={label}
           control={<CheckBox value={label} onChange={onChange} />}
           checked={check}
@@ -26,3 +26,4 @@ export const CheckBoxText = (props: CheckBoxTextProps) => {
     </div>
   )
 }
+

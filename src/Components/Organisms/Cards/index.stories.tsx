@@ -22,8 +22,9 @@ smallCards.args = {
   bus:true,
   car:true,
   train:true,
-  postedTime:"1hr 36 mins ago",
+  postedTime:"36 mins ago",
   state: false,
+
 };
 
 export const largeCards = Template.bind({});
@@ -38,4 +39,5 @@ largeCards.args = {
   train:true,
   postedTime:"1hr 36 mins ago",
   state:true,
+
 };

@@ -16,6 +16,6 @@ const Template: ComponentStory<typeof DescCard> = (args) => ( <DescCard {...args
           company:'Myntra',
           address:'Hitech city, Hyderabad - 500072',
           postedTime:'2 days ago',
-          isSaved:"Save",
+          isSaved:"UnSave",
       }
       

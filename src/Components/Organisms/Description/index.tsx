@@ -22,7 +22,7 @@ import greyRupee from "../../../images/icons/greyrupee.svg"
 import { Upload } from "../UploadResume"
 import {title,description,company,skills,metro,cabDetails} from "../../../Data/Cities"
 
-interface descProps{
+export interface descProps{
     icon?:string,
     title?:string,
     company?:string,
@@ -35,9 +35,9 @@ interface descProps{
 export const DescCard = (props:descProps) =>{
     const [changediv,setChangediv] = useState(1)
     const [routes,setRoutes] = useState(1)
-    const [buttonText, setButtonText] = useState('Save')
+    const [buttonText, setButtonText] = useState('UnSave')
     function savingFunc(){
-        buttonText === "Save"? setButtonText("Saved"):setButtonText("Save")
+        buttonText === "UnSave"? setButtonText("Save"):setButtonText("UnSave")
     }
     
     return(

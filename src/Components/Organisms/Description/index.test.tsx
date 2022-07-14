@@ -26,12 +26,6 @@ it('Icons should render' , ()=>{
     expect(icon).toBeInTheDocument()
 })
 
-// it('routes button should render' ,() => {
-//     description()
-//     const btn=screen.getByTestId('routesBtn')
-//     expect(btn).toBeInTheDocument()
-// })
-
 it('description text should render' ,() => {
     description()
     const text=screen.getByTestId('text')

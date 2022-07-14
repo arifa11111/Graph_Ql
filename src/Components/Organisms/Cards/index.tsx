@@ -9,8 +9,9 @@ import Metro from "../../../images/icons/train.svg";
 import { theme } from "../../../Theme";
 import { makeStyles } from "@mui/styles";
 import { DescCard } from "../Description";
+import {descProps} from '../../Organisms/Description'
 
-interface Props {
+interface Props  {
   icons: string;
   job: string;
   company: string;
@@ -22,6 +23,7 @@ interface Props {
   postedTime: string;
   state: boolean;
 }
+
 
 
 function Cards(props: Props) {
@@ -36,7 +38,7 @@ function Cards(props: Props) {
       <Box sx={{position:'fixed',left:'665px'}}>
             <DescCard icon={props.icons} title={props.job} 
                       company={props.company} address={props.location} 
-                      postedTime={props.postedTime} isSaved={"Save"} />
+                      postedTime={props.postedTime}  />
       </Box> 
   }
     <Box

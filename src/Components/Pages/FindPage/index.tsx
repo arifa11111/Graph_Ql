@@ -20,22 +20,23 @@ interface CardsProps {
   train: boolean;
   postedTime: string;
   state: boolean;
+  isSaved?:string;
 }
 
 let view
 function FindPage() {
-  const [cards, setCards] = useState<CardsProps[]>([])
+  // const [cards, setCards] = useState<CardsProps[]>([])
   const [styling,setStyling] = useState(true)
-  const allCards = async() =>{
-    const values = await fetch('http://localhost:3001/api/cards');
-    if(!values.ok)
-    {
-      console.log("Error");
-    }
-    const data = values.json()
-    setCards(await data);
-  }
-  useEffect(() => { allCards() })
+  // const allCards = async() =>{
+  //   const values = await fetch('http://localhost:3001/api/cards');
+  //   if(!values.ok)
+  //   {
+  //     console.log("Error");
+  //   }
+  //   const data = values.json()
+  //   setCards(await data);
+  // }
+  // useEffect(() => { allCards() })
   
   const flex = {
     display:'grid',transform: 'translateY(53px)',gridGap:'30px',gridTemplateColumns: 'auto auto auto'
@@ -115,7 +116,7 @@ function FindPage() {
                   train={true}
                   postedTime="1hr 36 mins ago"
                   state={false} />
-                  {cards.map(card => <p>card</p> )}
+                  {/* {cards.map(card => <p>card</p> )} */}
               </Box>
               
         </Box>

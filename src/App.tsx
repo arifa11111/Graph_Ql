@@ -1,21 +1,45 @@
 import './App.css';
-import { ThemeProvider, Typography } from '@mui/material';
+import { ThemeProvider} from '@mui/material';
 import { theme } from './Theme';
+import FindPage from './Components/Pages/FindPage';
 
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div style={{margin:'20%'}}>
-        <Typography variant='h1'>H1</Typography>
-        <Typography variant='h2'>H2</Typography>
-        <Typography variant='subtitle1'>subtitle1</Typography>
-        <Typography variant='subtitle2'>subtitle2</Typography>
-        <Typography variant='body1'>body1</Typography>
-        <Typography variant='body2'>body2</Typography>
-        <Typography variant='caption'>caption1</Typography>
-        <Typography variant='caption2'>caption2</Typography>
-      </div>
+      <FindPage />
+      {/* <FindJobs header={<Header />} sidepane={<Sidepane
+        findPage={
+        <Cards
+          icons="/images/icons/hp.svg"
+          job="User Experience Designer"
+          company="HP"
+          location="Hyderabad, Telangana, India"
+          bike={true}
+          bus={true}
+          car={true}
+          train={true}
+          postedTime="1hr 36 mins ago"
+          state={false}
+        />
+      }
+      savedPage={
+        <Cards
+          icons="/images/icons/hp.svg"
+          job="User Experience Designer"
+          company="HP"
+          location="Hyderabad, Telangana, India"
+          bike={true}
+          bus={true}
+          car={true}
+          train={true}
+          postedTime="1hr 36 mins ago"
+          state={true}
+        />
+      }
+    />} /> */}
+      
+      
     </ThemeProvider>
   );
 }

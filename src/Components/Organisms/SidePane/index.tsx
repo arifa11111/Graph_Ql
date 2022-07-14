@@ -98,13 +98,13 @@ function Sidepane(props:SideProps) {
       <Box width="150vh" height="1000vh" marginLeft={"50px"} className={classes.findcolors}>
         <TabContext value={findPage}>
         <TabPanel value={"1"}>
-        <Box data-testid={"find-box"} paddingLeft="10px">
+        <Box data-testid={"find-box"} sx={{paddingLeft:"20px",transform:'translateY(-25px)'}} >
             <Typography variant="h2">{sidepageheading.at(0)}</Typography>
             {props.findPage}
           </Box>
         </TabPanel>
         <TabPanel value={"2"}>
-        <Box data-testid={"saved-box"} paddingLeft="10px">
+        <Box data-testid={"saved-box"} sx={{paddingLeft:"20px",transform: 'translateY(-25px)'}}>
             <Typography variant="h2">{sidepageheading.at(1)}</Typography>
             {props.savedPage}
           </Box>
@@ -116,7 +116,7 @@ function Sidepane(props:SideProps) {
   );
 }
 
-const drawerWidthUnit = 240;
+const drawerWidthUnit = 279;
 
 const useStyles = makeStyles({
   drawer: {
@@ -179,7 +179,7 @@ const useStyles = makeStyles({
   },
 
   findcolors:{
-    backgroundColor: theme.palette.gray?.three,
+    backgroundColor: '#E5E5E5',
   },
 
   active: {

@@ -14,16 +14,15 @@
     position: absolute;
     width: 1366px;
     height: 80px;
-    left: 0px;
-    top: 0px;
-    
+    left: -8px;
+    top: -8px; 
 }
 .avatar{
     position: absolute;
-width: 36px;
-height: 36px;
-left: 1290px;
-top: 22px;
+    width: 36px;
+    height: 36px;
+    left: 1290px;
+    top: 22px;
 }
 
 .locationIcon{

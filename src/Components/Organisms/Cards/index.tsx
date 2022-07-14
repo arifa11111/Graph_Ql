@@ -8,6 +8,7 @@ import Car from "../../../images/icons/car.svg";
 import Metro from "../../../images/icons/train.svg";
 import { theme } from "../../../Theme";
 import { makeStyles } from "@mui/styles";
+import { DescCard } from "../Description";
 
 interface Props {
   icons: string;
@@ -22,16 +23,28 @@ interface Props {
   state: boolean;
 }
 
+
 function Cards(props: Props) {
   const classes = useStyles();
+  const [descCard,setDescCard] = useState(false)
   const [large, setLarge] = useState<boolean>(props.state);
   const [wholeBorder, setWholeBorder] = useState(classes.largeCard);
+  
   return (
+    <>
+    {descCard &&
+      <Box sx={{position:'fixed',left:'665px'}}>
+            <DescCard icon={props.icons} title={props.job} 
+                      company={props.company} address={props.location} 
+                      postedTime={props.postedTime} isSaved={"Save"} />
+      </Box> 
+  }
     <Box
       className={large ? wholeBorder : classes.smallCard}
       data-testid="card-contain"
       sx={{backgroundColor:"white"}}
       onClick={() => {
+        setDescCard(true)
         if (!large) {
           setLarge(!large);
           setWholeBorder(classes.largeCard + " " + classes.clickBorder);
@@ -44,6 +57,7 @@ function Cards(props: Props) {
         }
       }}
     >
+      
       <Box className={classes.smallCardInner}>
         <Box className={classes.smalltopCon}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -134,7 +148,7 @@ function Cards(props: Props) {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Box></>
   );
 }
 

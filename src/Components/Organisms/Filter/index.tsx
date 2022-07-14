@@ -51,7 +51,7 @@ export const Filter = () => {
     console.log(arrayValue)
   }
   return (
-    <div data-testid="FilterTestId" style={{ backgroundColor: "#E5E5E5", height: "100vh", width: "100vh" }}>
+    <Box data-testid="FilterTestId" sx={{width: '0px',transform:'translate(75px, 6px)'}}>
       <ButtonComponent variant="contained" startIcon={<FilterIcon />} onClick={handleOpen} label="Filter" style={{
         width: '137px',
         height: '56px',
@@ -59,22 +59,23 @@ export const Filter = () => {
         fontSize: '14px',
         color: "black",
         lineHeight: '22px',
+        marginLeft:'11px',
         backgroundColor: theme.palette.light?.four,
         borderRadius: '32px',
         textTransform: 'none',
         fontFamily: theme.typography.body1.fontFamily
       }}></ButtonComponent>
 
-      <Box className='filterBox'>
+      <Box className='filterBox ' sx={{transform:'translate(-123.5%,116%)'}}>
         <ChipBox>
           {arrayValue.map((item, key) => <Chips onDelete={() => console.log("deleted")} key={key} label={item} size="small" sx={{ backgroundColor: "white", borderRadius: "8px", marginLeft: "8px", height: "32px", marginTop: "8px" }} />)}
         </ChipBox>
-        <Typography onClick={resetFilter} sx={{
-          width: "70px", height: "22px", paddingTop: "3%",
+        { arrayValue[0] != null &&  <Typography className='clearText' onClick={resetFilter} sx={{
+          width: "70px", height: "22px", paddingTop: "1%",
           fontWeight: theme.typography.body1.fontWeight,
           fontFamily: theme.typography.body1.fontFamily, cursor: "pointer", color: theme.palette.green?.three
         }}>{"Clear All"}
-        </Typography>
+        </Typography>}
       </Box>
 
       <Modal
@@ -124,7 +125,7 @@ export const Filter = () => {
           </form>
         </Fade>
       </Modal>
-    </div>
+    </Box>
   );
 }
 const style = {

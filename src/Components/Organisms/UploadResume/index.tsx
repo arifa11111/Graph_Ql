@@ -5,6 +5,7 @@ import closeIcon from "../../../images/icons/close.svg";
 import "./index.css"
 import { ButtonComponent } from "../../Atoms/Buttons/Button";
 import { useState } from "react";
+import { UploadSuccess } from "../UploadSuccess";
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -19,12 +20,20 @@ const style = {
 
 export const Upload = () =>{
     const [open, setOpen] = useState(false)
-    
+    const [success,setSuccess] = useState(false)
+    const handleClick = () => {
+        setOpen(false)
+        setSuccess(true)
+    }
     return(
         <>
-         <ButtonComponent variant='outlined' classing='save' 
-                        label={'Save'} onClick={()=>setOpen(true)} 
-                        style={{borderColor: theme.palette.green?.three,borderRadius: '8px',}} />
+        {success && <UploadSuccess />}
+         <ButtonComponent label={"Apply"} variant={'contained'} classing={'next'} onClick={()=>setOpen(true)}  style={{
+                                    fontSize: '12px',fontWeight: '700px',
+                                    lineHeight: '16px',fontFamily: theme.typography.body1.fontFamily,
+                                    fontStyle: 'normal',textTransform: 'none',
+                                    width: '92px',backgroundColor:theme.palette.green?.six,
+                                    height: '32px',borderRadius: '8px',boxShadow:'none',  }} />
          <Modal
             open={open}
             aria-labelledby="modal-modal-title"
@@ -32,7 +41,7 @@ export const Upload = () =>{
                 <Grid item className="boxresume" sx={style}>
                     <div className="fileText"> File Upload </div>
                     <div className="closer" >
-                            <Icons source={closeIcon} height={"24px"} width={"24px"} onClick={()=> setOpen(false) } data-testid="icon" />    
+                            <Icons source={closeIcon} height={"24px"} width={"24px"} onClick={()=>setOpen(false) } data-testid="icon" />    
                     </div>
                     <Box className="greenBox">
                         <Box>
@@ -45,7 +54,7 @@ export const Upload = () =>{
                                         height:"40px",borderRadius:"8px",
                                         color:"white",textTransform:'none',
                                 }}  />  
-                            <input type="file"  id="getFile" data-testid="file" style={{display:'none'}}  onChange={()=> setOpen(false)} />
+                            <input type="file"  id="getFile" data-testid="file" style={{display:'none'}}  onChange={ handleClick} />
                         </Box>
                     </Box>
                 </Grid >

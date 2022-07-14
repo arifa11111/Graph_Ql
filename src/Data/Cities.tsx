@@ -131,3 +131,5 @@ export const metro=["Catch a blue line metro towards Raidurg"]
 
 export const sidepageheading = ["Find Jobs", "Saved Jobs"]
 
+export const PageHeading1 = ["Recommended for you","Job list"]
+export const PageHeading2 = ["Based on your profile,skills and search history.","Based on your search"]

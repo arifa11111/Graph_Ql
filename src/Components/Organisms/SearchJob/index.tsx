@@ -1,10 +1,12 @@
 import { Box, styled, TextField } from '@mui/material'
 import Autocomplete from '@mui/material/Autocomplete';
 import { ReactComponent as Work } from "../../../images/icons/work.svg"
-import { ReactComponent as LocationIcon } from "../../../images/icons/searchJobLocation.svg"
+import  LocationIcon  from "../../../images/icons/searchJobLocation.svg"
 import { ReactComponent as SearchIcon } from "../../../images/icons/search.svg"
 import { ButtonComponent } from '../../Atoms/Buttons/Button';
 import "./index.css";
+import { Icons } from '../../Atoms/IconsAtom';
+import { theme } from '../../../Theme';
 
 interface searchProps {
   skills: readonly unknown[],
@@ -12,11 +14,9 @@ interface searchProps {
 }
 
 export const SearchJob = (props: searchProps) => {
-
   return (
-    <div style={{backgroundColor:"#E5E5E5",height:"100vh"}}>
-
-    <OverallBox data-testid='searchJob'>
+    <Box sx={{paddingTop:'9px'}}>
+    <OverallBox data-testid='searchJob' >
       <InnerBox>
         <Work style={{marginLeft:"15px"}}/>
         <Autocomplete fullWidth freeSolo
@@ -25,16 +25,19 @@ export const SearchJob = (props: searchProps) => {
           renderInput={(params) => <SearchField sx={{marginLeft:"10px"}} placeholder='Search Skills' {...params} />}
         />
       </InnerBox>
-      <LocationIcon className="locationIconInFilter"/>
+      <Icons source={LocationIcon} />
       <Autocomplete fullWidth freeSolo
         options={props.locations}
         disableClearable
         data-testid='location'
         renderInput={(params) => <SearchField sx={{marginLeft:"50px"}} placeholder='Location' {...params} />}
       />
-      <ButtonComponent variant='contained' classing="iconBtn" style={{height:"40px",width:"40px",marginRight:"6px" }} startIcon={<div style={{ paddingLeft: '10px', paddingTop: '10px'}}><SearchIcon /></div>} />
+            
+      <ButtonComponent variant='contained' style={{backgroundColor: theme.palette.green?.three,
+       borderRadius: '60%',height: '44px',minWidth:'44px',marginRight:'3px',boxShadow:'none',padding:'0px 0px'}}
+           startIcon={<div style={{ paddingLeft: '10px', paddingTop: '10px'}}><SearchIcon /></div>} />
     </OverallBox>
-    </div>
+    </Box>
   )
 }
 
@@ -51,7 +54,7 @@ const InnerBox = styled(Box)({
 const OverallBox = styled(Box)({
   height: '50px',
   display: 'flex',
-  width: '100%',
+  width:'843px',
   alignItems: 'center',
   borderRadius:"32px",
   backgroundColor:"white"

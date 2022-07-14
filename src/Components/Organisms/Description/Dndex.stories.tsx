@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof DescCard> = (args) => ( <DescCard {...args
           title:'User Experiance Designer',
           company:'Myntra',
           address:'Hitech city, Hyderabad - 500072',
-          lastUpadate:'2 days ago',
+          postedTime:'2 days ago',
           isSaved:"Save",
       }
+      

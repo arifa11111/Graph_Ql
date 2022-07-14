@@ -27,7 +27,7 @@ interface descProps{
     title?:string,
     company?:string,
     address?:string,
-    lastUpadate?:string,
+    postedTime?:string,
     isSaved?:string,
     handleSave?:()=>void
 }
@@ -35,27 +35,27 @@ interface descProps{
 export const DescCard = (props:descProps) =>{
     const [changediv,setChangediv] = useState(1)
     const [routes,setRoutes] = useState(1)
-
+    const [buttonText, setButtonText] = useState('Save')
+    function savingFunc(){
+        buttonText === "Save"? setButtonText("Saved"):setButtonText("Save")
+    }
+    
     return(
         <Grid className="box1">
          <Grid className="innerDiv"> 
             <Grid className="grid1">
                 <div style={{transform:'translate(-7px,11px'}}><Icons source={props.icon} height={'45px'} width={'45px'}  /></div>
                 <Box className="details" >
-                <Box className="title" sx={{fontFamily:theme.typography.fontFamily}}>{props.title}</Box>
-                    <Box className="font3" sx={{fontFamily:theme.typography.fontFamily}}>{props.company}</Box>
-                    <Box className="font3" sx={{fontFamily:theme.typography.fontFamily}}>{props.address}</Box>
-                    <Box className="font2" sx={{fontFamily:theme.typography.fontFamily}}>{props.lastUpadate}</Box>
+                <Typography variant='subtitle1' sx={{letterSpacing:'0em'}}>{props.title}</Typography>
+                    <Typography variant='caption2' sx={{color:theme.palette.black?.two}}>{props.company}</Typography>
+                    <Typography variant='caption2' sx={{color:theme.palette.black?.two}}>{props.address}</Typography>
+                    <Typography variant='caption' sx={{letterSpacing:'0em'}} >{props.postedTime}</Typography>
                     <Box className="btnBox">
-                        <div><Upload /></div>
-                       <div className="applyBtn" >
-                          <ButtonComponent label={"Apply"} variant={'contained'} classing={'next'} style={{
-                                    fontSize: '12px',fontWeight: '700px',
-                                    lineHeight: '16px',fontFamily: theme.typography.body1.fontFamily,
-                                    fontStyle: 'normal',textTransform: 'none',
-                                    width: '92px',backgroundColor:theme.palette.green?.six,
-                                    height: '32px',borderRadius: '8px',boxShadow:'none',
-                          }} /></div>
+                        <div><ButtonComponent variant='outlined' classing='save' 
+                                label={buttonText}  onClick={savingFunc}
+                                style={{borderColor: theme.palette.green?.three,borderRadius:'8px',
+                                        textTransform:'none',fontSize:'12px',color:theme.palette.green?.three}} /></div>
+                       <div className="applyBtn" > <Upload/> </div>
                     </Box>
                 </Box>
                 <Box sx={{height:'20px',paddingLeft:'30px',transform:'translateX(10px)'}}><Icons source={more} height={'20px'} width={'20px'} /></Box>
@@ -63,7 +63,7 @@ export const DescCard = (props:descProps) =>{
         <hr className="hr" />
              { changediv ? (<Grid className="grid2" data-testid="text" >
                 <div>
-                    <Typography variant='body1' id='h4'> {title[0]}</Typography>
+                    <Typography variant='body1' id='h44'> {title[0]}</Typography>
                     <Typography variant='body2' id='p'>{description[0]}</Typography>
                     <Typography variant='body1'id='h4' >{title[1]}</Typography>
                     <Typography variant='body2' id='p'>{company[0]}</Typography>

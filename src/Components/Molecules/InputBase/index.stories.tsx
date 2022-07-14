@@ -13,6 +13,7 @@ export const WhereDoYouStay = Template.bind({});
 WhereDoYouStay.args = {
     locations:areas,
     placeholder:"Enter your Location",
+    value: { area: "Ameerpet, Hyderabad, Telangana", AQI:"535" }
 }
 
 export const JobLocation = Template.bind({});
@@ -22,4 +23,5 @@ JobLocation.args = {
     size:"medium",
     locations:cities,
     placeholder:"Enter Your Job Location",
+    value: [{area:"Mumbai",AQI:"780"}],
 }

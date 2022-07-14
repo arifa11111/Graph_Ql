@@ -1,34 +1,38 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { theme } from '../../../Theme';
-import { makeStyles } from '@mui/styles';
-import "./index.css"
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { theme } from "../../../Theme";
+import { makeStyles } from "@mui/styles";
+import "./index.css";
+import { inputbasehead, steps } from "../../../Data/Cities";
+import { styled } from "@mui/material";
 
-const steps = ['Your Location', 'Job Location', 'Your Skills'];
+const StepBox = styled(Box)({
+  paddingTop: "64px",
+});
 
-export default function HomePageStepper() {
+interface StepperProps {
+  step1?: JSX.Element;
+  step2?: JSX.Element;
+  step3?: JSX.Element;
+  activeStep?: number;
+  handleNext?: () => void;
+  handleBack?: () => void;
+}
+
+export default function HomePageStepper(props: StepperProps) {
   const styles = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [skipped, setSkipped] = React.useState(new Set<number>());
-
-  const handleNext = () => {
-    let newSkipped = skipped;
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  const handleNext = props.handleNext;
+  const handleBack = props.handleBack;
+  const activeStep = props.activeStep;
 
   return (
     <>
-      <Box sx={{ width: '100%',padding:'0px 8px 0px 8px' }}>
+      <Box sx={{ width: "100%", padding: "0px 8px 0px 8px" }}>
         <Stepper data-testid="stepper" connector={null} activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps: { completed?: boolean } = {};
@@ -37,45 +41,46 @@ export default function HomePageStepper() {
             } = {};
 
             return (
-              <Step key={label} sx={{
-                '& .MuiStepLabel-root .Mui-completed': {
-                  color: theme.palette.green?.three, // circle color (COMPLETED)
-                  fontWeight: theme.typography.subtitle1.fontWeight,
-                  height: "40px"
-                },
+              <Step
+                key={label}
+                sx={{
+                  "& .MuiStepLabel-root .Mui-completed": {
+                    color: theme.palette.green?.three, // circle color (COMPLETED)
+                    fontWeight: theme.typography.subtitle1.fontWeight,
+                    height: "40px",
+                  },
 
-                '& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel':
-                {
-                  color: theme.palette.green?.three, // Just text label (COMPLETED)
-                  fontFamily: theme.typography.subtitle1.fontFamily,
-                  fontWeight: theme.typography.subtitle1.fontWeight,
-                },
+                  "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel":
+                    {
+                      color: theme.palette.green?.three, // Just text label (COMPLETED)
+                      fontFamily: theme.typography.subtitle1.fontFamily,
+                      fontWeight: theme.typography.subtitle1.fontWeight,
+                    },
 
-                '& .MuiStepLabel-root .Mui-active': {
-                  color: theme.palette.green?.three,
-                  fontFamily: theme.typography.subtitle1.fontFamily,
-                  fontWeight: theme.typography.subtitle1.fontWeight,// circle color (ACTIVE)
-                },
+                  "& .MuiStepLabel-root .Mui-active": {
+                    color: theme.palette.green?.three,
+                    fontFamily: theme.typography.subtitle1.fontFamily,
+                    fontWeight: theme.typography.subtitle1.fontWeight, // circle color (ACTIVE)
+                  },
 
-                '& .MuiStepLabel-label .Mui-active.MuiStepLabel-alternativeLabel':
-                {
-                  color: theme.palette.green?.three, // Just text label (ACTIVE)
-                  fontFamily: theme.typography.subtitle1.fontFamily,
-                  fontWeight: theme.typography.subtitle1.fontWeight,
-                },
+                  "& .MuiStepLabel-label .Mui-active.MuiStepLabel-alternativeLabel":
+                    {
+                      color: theme.palette.green?.three, // Just text label (ACTIVE)
+                      fontFamily: theme.typography.subtitle1.fontFamily,
+                      fontWeight: theme.typography.subtitle1.fontWeight,
+                    },
 
-                '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {
-                  fill: 'white', // circle's number (ACTIVE)
-                  fontFamily: theme.typography.subtitle1.fontFamily,
-                  fontWeight: theme.typography.subtitle1.fontWeight,
-                  width: "7px"
-                },
+                  "& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
+                    fill: "white", // circle's number (ACTIVE)
+                    fontFamily: theme.typography.subtitle1.fontFamily,
+                    fontWeight: theme.typography.subtitle1.fontWeight,
+                    width: "7px",
+                  },
 
-                "&  .Mui-disabled":
-                {
-                  fontFamily: theme.typography.subtitle1.fontFamily,
-                  fontWeight: theme.typography.subtitle1.fontWeight,
-                },
+                  "&  .Mui-disabled": {
+                    fontFamily: theme.typography.subtitle1.fontFamily,
+                    fontWeight: theme.typography.subtitle1.fontWeight,
+                  },
 
                 /* disable stepper label text color */
                 "& .css-16ubnlw-MuiStepLabel-labelContainer":
@@ -100,84 +105,122 @@ export default function HomePageStepper() {
                   width: "100px",
                 },
 
-                /* finished circle label dimensions */
-                "& .css-qivjh0-MuiStepLabel-label": {
-                  fontFamily: theme.typography.subtitle1.fontFamily,
-                  lineHeight: "2.9"
-                },
-                
-
-              }}>
+                  /* finished circle label dimensions */
+                  "& .css-qivjh0-MuiStepLabel-label": {
+                    fontFamily: theme.typography.subtitle1.fontFamily,
+                    lineHeight: "2.9",
+                  },
+                }}
+              >
                 <StepLabel {...labelProps}>{label}</StepLabel>
               </Step>
             );
           })}
         </Stepper>
 
-      <Box data-testid="box1" sx={{width:'540px',paddingTop:'53px'}}><Typography variant={"h1"} >More than 2000 people are using Green Commute</Typography></Box>
+        <Box data-testid="box1" sx={{ maxWidth: "540px", paddingTop: "80px" }}>
+          <Typography variant={"h1"}>
+            More than 2000 people are using Green Commute
+          </Typography>
+        </Box>
 
+        <StepBox>
+          {activeStep === 0 && (
+            <Box data-testid="box1">
+              <Typography variant="subtitle1" paddingBottom={"8px"}>{inputbasehead.at(0)}</Typography>
+              {props.step1}
+            </Box>
+          )}
+          {activeStep === 1 && (
+            <Box data-testid="box2">
+              <Typography variant="subtitle1" paddingBottom={"8px"}>{inputbasehead.at(1)}</Typography>
+              {props.step2}
+            </Box>
+          )}
+          {activeStep === 2 && (
+            <Box data-testid="box3">
+              <Typography variant="subtitle1" paddingBottom={"8px"}>{inputbasehead.at(2)}</Typography>
+              {props.step3}
+            </Box>
+          )}
+        </StepBox>
         {activeStep === steps.length ? (
           <React.Fragment>
-
             {/* <Typography sx={{ mt: 2, mb: 1 }}>
               navigates to findjobs page
             </Typography> */}
-
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 7 ,transform:'translateY(142px)'}}>
-
-              {activeStep !==0 && <Button data-testid="btnBack" variant={"outlined"} className={styles.backButton}
-                onClick={handleBack}
-                style={{ marginRight: "8px" }} >
-                Back
-              </Button>}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                transform: "translateY(36px)",
+              }}
+            >
+              {activeStep !== 0 && (
+                <Button
+                  data-testid="btnBack"
+                  variant={"outlined"}
+                  className={styles.backButton}
+                  onClick={handleBack}
+                  style={{ marginRight: "8px" }}
+                  sx={{textTransform:"none"}}
+                >
+                  Back
+                </Button>
+              )}
 
               <Button data-testid="btnNext" variant={"contained"} className={styles.nextButton} onClick={handleNext}>
                 Next
               </Button>
-
             </Box>
           </React.Fragment>
         )}
+        <Typography
+          variant="subtitle1"
+          className="skipText"
+          sx={{
+            color: theme.palette.green?.six,
+            fontFamily: theme.typography.body1,
+            transform: "translateY(46px)",
+          }}
+        >
+          Skip
+        </Typography>
       </Box>
-      <Typography variant="subtitle1" className='skipText' sx={{ color: theme.palette.green?.six, fontFamily: theme.typography.body1,transform:"translateY(160px)" }}>Skip</Typography>
     </>
   );
 }
 
 const useStyles = makeStyles({
   connector: {
-    borderLeft: "red"
+    borderLeft: "red",
   },
   backButton: {
-    fontFamily: theme.typography.body1.fontFamily,
+    fontFamily: theme.typography.body1.fontFamily +" !important",
     width: "140px",
     height: "46px",
-    borderStyle: "solid",
-    borderRadius: "8px",
-    borderColor: theme.palette.green?.six,
-    color: theme.palette.green?.six,
+    borderRadius: "8px !important",
+    border: "1px solid "+theme.palette.green?.six +" !important",
+    color: theme.palette.green?.six +" !important",
     "&:hover": {
       borderColor: theme.palette.green?.six,
-      color: theme.palette.green?.six
+      color: theme.palette.green?.six,
     },
-    textTransform: "none"
   },
   nextButton: {
     fontFamily: theme.typography.body1.fontFamily,
     width: "140px",
     height: "46px",
-    borderStyle: "solid",
-    borderRadius: "8px",
+    borderRadius: "8px !important",
     backgroundColor: theme.palette.green?.six + " !important",
-    borderColor: theme.palette.green?.six,
-    color: theme.palette.light?.four,
+    borderColor: "1px solid "+theme.palette.green?.six +" !important",
+    color: theme.palette.light?.four +" !important",
     "&:hover": {
       backgroundColor: theme.palette.green?.six + " !important",
-      color: theme.palette.light?.four
+      color: theme.palette.light?.four,
     },
-    textTransform: "none"
   },
-})
+});

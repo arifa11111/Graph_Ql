@@ -21,6 +21,7 @@ const theme = createTheme({
             one: "#373C38",
             two: "#656E66",
             three: "#94A196",
+            
         },
         gray: {
             one: "#D6D6D6",

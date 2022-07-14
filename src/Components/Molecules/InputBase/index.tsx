@@ -5,6 +5,12 @@ import { theme } from "../../../Theme";
 import Chips from "../../Atoms/Chips";
 import "./index.css";
 
+export interface OptionProp {
+  area: string;
+  AQI?: string;
+}
+
+
 interface InputProps {
   multiple?: boolean;
   limitTags?: number;
@@ -12,6 +18,8 @@ interface InputProps {
   placeholder: string;
   locations?: any;
   onChange?: (e: React.SyntheticEvent, value: any) => void;
+  value?: any;
+  clear?: boolean;
 }
 
 function CityInput(props: InputProps) {
@@ -20,17 +28,23 @@ function CityInput(props: InputProps) {
   const noTextBorder = classes.inputfield + " " + classes.addborder;
   let borderstyle = noTextBorder;
 
+console.log(props.locations);
   return (
     <ThemeProvider theme={theme}>
       <Autocomplete
         className={classes.inputfield}
         multiple={props.multiple}
         limitTags={props.limitTags}
+        disableCloseOnSelect
+        disableClearable={props.clear}
         size={props.size}
         id="combo-box-demo"
         data-testid="Auto-complete"
+        value={props.value}
         options={props.locations}
-        getOptionLabel={(option) => option.area}
+        getOptionLabel={(option: OptionProp) => option?.area}
+        defaultValue={props.value}
+//         defaultValue={(option: OptionProp, value: OptionProp) => {if(JSON.stringify(option) === JSON.stringify(value)) return option} }
         onChange={props.onChange}
         onBlur={(e) => {
           if (
@@ -62,7 +76,7 @@ function CityInput(props: InputProps) {
           return tagValue.map((option, index) => (
             <Chips
               {...getTagProps({ index })}
-              label={option.area}
+              label={option?.area}
               data-testid="chip-check"
               classes={{ root: classes.chip }}
             />

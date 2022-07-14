@@ -2,7 +2,7 @@ import { ComponentStory } from '@storybook/react';
 import Image from './Map';
 import mapview from "../../../images/icons/mapview.svg";
 import roadmap from "../../../images/icons/maps.svg"
-import aqi894 from "../../../images/icons/894.svg"
+import aqi894 from "../../../images/icons/aqibord.svg"
 import aqi2 from "../../../images/icons/2aqi.svg"
 import man from "../../../images/icons/man.svg"
 import paint from "../../../images/icons/paint.svg"
@@ -33,8 +33,9 @@ Maps.args = {
 export const AQI1 = Template.bind({});
 AQI1.args = {
   src: aqi894,
-  height: 314,
-  width: 325,
+  height: 212,
+  width: 214,
+  text:"595"
 }
 
 export const AQI2 = Template.bind({});

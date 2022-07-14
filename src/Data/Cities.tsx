@@ -7,94 +7,14 @@ import { ReactComponent as NeedHelp } from "../images/icons/help.svg";
 import { ReactComponent as Contact } from "../images/icons/contact.svg";
 import { ReactComponent as Settings } from "../images/icons/settings.svg";
 import { theme } from "../Theme";
-export const areas = [
-  { area: "Ameerpet, Hyderabad, Telangana" },
-  { area: "Begumpet, Hyderabad, Telangana" },
-  { area: "SR Nagar, Hyderabad, Telangana" },
-  { area: "Prakash Nagar, Hyderabad, Telangana" },
-  { area: "Punjagutta, Hyderabad, Telangana" },
-  { area: "Balkampet, Hyderabad, Telangana" },
-  { area: "Sanathnagar, Hyderabad, Telangana" },
-  { area: "Bharat Nagar, Hyderabad, Telangana" },
-  { area: "Erragadda, Hyderabad, Telangana" },
-  { area: "Borabanda, Hyderabad, Telangana" },
-  { area: "Moti Nagar, Hyderabad, Telangana" },
-  { area: "Khairtabad, Hyderabad, Telangana" },
-  { area: "Somajiguda, Hyderabad, Telangana" },
-  { area: "Raj Bhavan Road, Hyderabad, Telangana" },
-  { area: "Lakdikapool, Hyderabad, Telangana" },
-  { area: "Saifabad, Hyderabad, Telangana" },
-  { area: "A.C. Guards, Hyderabad, Telangana" },
-  { area: "Masab Tank, Hyderabad, Telangana" },
-  { area: "Chintal Basti, Hyderabad, Telangana" },
-  { area: "Musheerabad, Hyderabad, Telangana" },
-  { area: "Chikkadpally, Hyderabad, Telangana" },
-  { area: "Himayatnagar, Hyderabad, Telangana" },
-  { area: "Ashok Nagar, Hyderabad, Telangana" },
-  { area: "Domalguda, Hyderabad, Telangana" },
-  { area: "Hyderguda, Hyderabad, Telangana" },
-  { area: "Ramnagar, Hyderabad, Telangana" },
-  { area: "Azamabad, Hyderabad, Telangana" },
-  { area: "Adikmet, Hyderabad, Telangana" },
-  { area: "Nallakunta, Hyderabad, Telangana" },
-  { area: "Shanker Mutt, Hyderabad, Telangana" },
-  { area: "RTC X Roads, Hyderabad, Telangana" },
-  { area: "Bagh Lingampally, Hyderabad, Telangana" },
-  { area: "Vidyanagar, Hyderabad, Telangana" },
-  { area: "Secunderabad Cantonment, Hyderabad, Telangana" },
-  { area: "Bowenpally, Hyderabad, Telangana" },
-  { area: "Karkhana, Hyderabad, Telangana" },
-  { area: "East Marredpally, Hyderabad, Telangana" },
-  { area: "Sikh Village, Hyderabad, Telangana" },
-  { area: "Trimulgherry, Hyderabad, Telangana" },
-  { area: "Vikrampuri, Hyderabad, Telangana" },
-  { area: "Amboli, Mumbai, Maharashtra" },
-  { area: "Chakala, Mumbai, Maharashtra" },
-  { area: "D.N. Nagar, Mumbai, Maharashtra" },
-  { area: "Four Bungalows, Mumbai, Maharashtra" },
-  { area: "JB Nagar, Mumbai, Maharashtra" },
-  { area: "LOKHADWALA, Mumbai, Maharashtra" },
-  { area: "Marol, Mumbai, Maharashtra" },
-  { area: "Model Town, Mumbai, Maharashtra" },
-  { area: "Oshiwara, Mumbai, Maharashtra" },
-  { area: "Poonam Nagar, Mumbai, Maharashtra" },
-  { area: "Sahar, Mumbai, Maharashtra" },
-  { area: "Saki Naka, Mumbai, Maharashtra" },
-  { area: "Seven Bungalows, Mumbai, Maharashtra" },
-  { area: "Versova, Mumbai, Maharashtra" },
-  { area: "Indra Lok Phase 1, Mumbai, Maharashtra" },
-  { area: "Indra Lok Phase 2, Mumbai, Maharashtra" },
-  { area: "Indra Lok Phase 3, Mumbai, Maharashtra" },
-  { area: "Mira Road, Mumbai, Maharashtra" },
-  { area: "Bhayandar, Mumbai, Maharashtra" },
-  { area: "Uttan, Mumbai, Maharashtra" },
-  { area: "Kashimira, Mumbai, Maharashtra" },
-  { area: "Mira Road East, Mumbai, Maharashtra" },
-  { area: "Naya Nagar, Mumbai, Maharashtra" },
-  { area: "Sheetal Nagar, Mumbai, Maharashtra" },
-  { area: "Shanti Nagar, Mumbai, Maharashtra" },
-  { area: "Kanakia, Mumbai, Maharashtra" },
-  { area: "Beverely, Mumbai, Maharashtra" },
-  { area: "Queens Park, Mumbai, Maharashtra" },
-  { area: "Srishti, Mumbai, Maharashtra" },
-  { area: "Ramdev Park, Mumbai, Maharashtra" },
-  { area: "Medtiya Nagar, Mumbai, Maharashtra" },
-  { area: "Pleasant Park, Mumbai, Maharashtra" },
-  { area: "Vinay Park, Mumbai, Maharashtra" },
-  { area: "Penkadpada, Mumbai, Maharashtra" },
-  { area: "Gcc Club, Mumbai, Maharashtra" },
-  { area: "Mira gaon, Mumbai, Maharashtra" },
-  { area: "Bhayandar East, Mumbai, Maharashtra" },
-  { area: "Bhayandar Flyover, Mumbai, Maharashtra" },
-  { area: "Bhayandar Khadi, Mumbai, Maharashtra" },
-  { area: "Jesal park, Mumbai, Maharashtra" },
-  { area: "Bhayandar West, Mumbai, Maharashtra" },
-  { area: "Bhayandar railway Station, Mumbai, Maharashtra" },
-  { area: "Bhayandar Subway, Mumbai, Maharashtra" },
-  { area: "Bhayandar Creek Bridge, Mumbai, Maharashtra" },
-  { area: "Metro Line 9 Mira Road, Bhayandar, Mumbai, Maharashtra" },
-];
 
+export const areas = [
+  { area: "Ameerpet, Hyderabad, Telangana", AQI:"535" },
+  { area: "Begumpet, Hyderabad, Telangana", AQI:"570" },
+  { area: "East Marredpally, Hyderabad, Telangana", AQI:"678" },
+  { area: "Pleasant Park, Mumbai, Maharashtra", AQI:"768" },
+  { area: "Mira gaon, Mumbai, Maharashtra", AQI:"876" },
+];
 export const sideItems = [
   { text: "Dashboard", icon: Dashboard , color: theme.palette.black?.one},
   { text: "Find Jobs", icon: FindJob , color: theme.palette.black?.two},
@@ -109,12 +29,21 @@ export const extraSide = [
   { text: "Settings", icon: Settings , color: theme.palette.black?.three },
 ];
 
+
 export const cities = [
-  { area: "Hyderabad" },
-  { area: "Mumbai" },
-  { area: "Bangloore" },
-  { area: "Chennai" },
+  { area: "Hyderabad", AQI:"678" },
+  { area: "Mumbai", AQI:"780" },
+  { area: "Bangloore", AQI:"750" },
+  { area: "Chennai", AQI:"690" },
 ];
+
+export const jobSkills = [
+  {area : "UI/UX Designer"},
+  {area : "Graphic Designer"},
+  {area : "Full Stack Devoloper"},
+  {area : "Product Designer"},
+  {area : "Web Devoloper"},
+]
 
 export const distance = ["Distance","0 - 10 Kms", "11 -20 Kms", "21 - 30 Kms","31 - 40 Kms"]; 
 export const datePosted = ["Date Posted","Past 24 hours", "Past week", "Past month","Anytime"]; 
@@ -130,4 +59,7 @@ export const skills=["Excellent written and oral communication and presentation 
 export const metro=["Catch a blue line metro towards Raidurg"]
 
 export const sidepageheading = ["Find Jobs", "Saved Jobs"]
+export const inputbasehead = ["Where do  you stay ?", "Where do you want to work?", "What do you want to do?"];
+export const steps = ["Your Location", "Job Location", "Your Skills"];
+export const landuitext = ["Enter Location to know Time Air Quality Index (AQI)","Real Time Air Quality Index(AQI) in this location"];
 

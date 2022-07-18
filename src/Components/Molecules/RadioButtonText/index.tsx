@@ -7,7 +7,7 @@ import { ThemeProvider } from '@mui/styles';
 import { theme } from '../../../Theme';
 import { Typography } from '@mui/material';
 
-const BpIcon = styled('span')(({ theme }) => ({
+const BpIcon = styled('span')({
   borderRadius: '50%',
   width: 16,
   height: 16,

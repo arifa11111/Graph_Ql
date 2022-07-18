@@ -57,7 +57,7 @@ export const DescCard = (props: DescProps) => {
                     <Box sx={{ height: '20px', paddingLeft: '30px', transform: 'translateX(10px)' }}><Icons source={more} height={'20px'} width={'20px'} /></Box>
                 </Grid>
                 <hr className="hr" />
-                {changediv ? (<Grid className="grid2" data-testid="text" >
+                {(changediv && (<Grid className="grid2" data-testid="text" >
                     <div>
                         <Typography variant='body1' id='h4'> {title[0]}</Typography>
                         <Typography variant='body2' id='p'>{description[0]}</Typography>
@@ -76,7 +76,7 @@ export const DescCard = (props: DescProps) => {
                             transform: 'translate(-22.2px,26px)',
                             borderRadius: '0px 0px 12px 12px'
                         }} />
-                </Grid>) : (
+                </Grid>)) || (!changediv && 
                     <Grid className="routes">
                         <Box sx={{ display: 'flex' }}><Icons source={back} width={'24px'} height={'24px'} onClick={() => setChangediv(1)} />
                             <Typography variant='body1' sx={{ paddingLeft: '5px' }}>Common Routes </Typography> </Box>
@@ -89,19 +89,18 @@ export const DescCard = (props: DescProps) => {
                         </Box>
                         <Divider />
                         <Typography variant='body2' sx={{ paddingTop: '28px' }}>{metro[0]}</Typography>
-
-                        {routes ? (<><Box className='hrs'><Box sx={{ transform: 'translate(10px,1px)' }}><Icons source={greyRupee} height={'9px'} width={'10px'} /></Box>
+                        {(routes && (<><Box className='hrs'><Box sx={{ transform: 'translate(10px,1px)' }}><Icons source={greyRupee} height={'9px'} width={'10px'} /></Box>
                             {cabDetails[0]}<span className='dot'></span>{cabDetails[1]}<span ></span>{cabDetails[2]}</Box>
                             <Box className='cards'>
-                                <OlaCard Icon={ola} /><OlaCard Icon={uber} /><OlaCard Icon={rapido} /></Box></>)
-                            : (<>
-                                <Box className='hrs'><Box sx={{ transform: 'translate(10px,1px)' }}><Icons source={greyRupee} height={'9px'} width={'10px'} /> </Box>
-                                    {cabDetails[0]}<span className='dot'></span>{cabDetails[1]}<span className='dot'></span>{cabDetails[2]}</Box>
+                                <OlaCard Icon={ola} /><OlaCard Icon={uber} /><OlaCard Icon={rapido} /></Box></>)) 
+                        || (!routes && (<>
+                            <Box className='hrs'><Box sx={{ transform: 'translate(10px,1px)' }}><Icons source={greyRupee} height={'9px'} width={'10px'} /> </Box>
+                                {cabDetails[0]}<span className='dot'></span>{cabDetails[1]}<span className='dot'></span>{cabDetails[2]}</Box>
 
-                                <Box sx={{ paddingTop: '10px' }}><AqiImage src={MapView} width={361} height={147} />
-                                    <Typography variant='caption' sx={{ color: theme.palette.green?.six, wordSpacing: '1px' }}>{google}</Typography> </Box></>)}
+                            <Box sx={{ paddingTop: '10px' }}><AqiImage src={MapView} width={361} height={147} />
+                                <Typography variant='caption' sx={{ color: theme.palette.green?.six, wordSpacing: '1px' }}>{google}</Typography> </Box></>))} 
                     </Grid>
-                )}
+                )} 
             </Grid>
         </Grid>
     )

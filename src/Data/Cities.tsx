@@ -63,3 +63,11 @@ export const inputbasehead = ["Where do  you stay ?", "Where do you want to work
 export const steps = ["Your Location", "Job Location", "Your Skills"];
 export const landuitext = ["Enter Location to know Time Air Quality Index (AQI)","Real Time Air Quality Index(AQI) in this location"];
 
+export const PageHeading1 = ["Recommended for you","Job list"]
+export const PageHeading2 = ["Based on your profile, skills and search history.","Based on your search"]
+export const searchJobskills=["frontend developer", "Full stack developer"]
+export const searchJobLocation=["Hyderabad", "Mumbai"]
+export const greenCommuteRoutes=['Green Commute Routes']
+export const google=['View in Google Maps']
+export const placeholder=['Search Skills','Location']
+export const fileUpload=['File Upload']

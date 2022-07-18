@@ -33,7 +33,6 @@ const Image = (props: MyProps) => {
   }
 
   return (
-    // <img src={props.src} style={styles} alt={"loading..."} ></img>
     <Box style={styles}>
       <Box style={innerStyles} data-testid="image-box">
         <Typography variant="h1" style={typoStyles}>

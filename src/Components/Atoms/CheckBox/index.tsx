@@ -13,15 +13,13 @@ export const CheckBox = (props: checkBoxprops) => {
          onChange={onChange} value={value} className="css-ejr8v6-MuiButtonBase-root-MuiCheckbox-root" 
          sx={{
             color: "#D6D6D6",
-            borderWidth:"1px" + " !important",
+            borderWidth:"1px !important",
             '&.Mui-checked': {
                 color: "#30A193",
             },
-            paddingRight:"8px",
-            paddingTop:"10px"
+            paddingRight:"6px",
+            paddingTop:"0px",
+            paddingBottom:"2px",
+
             }} />
 }
-
-
-
-

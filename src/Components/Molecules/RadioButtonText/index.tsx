@@ -59,8 +59,8 @@ const BpRadio = (props: any) => {
 }
 
 export interface RadioProps {
-  label1?: String,
-  label2?: String,
+  label1?: string,
+  label2?: string,
 }
 
 export interface RadioProps{
@@ -77,13 +77,12 @@ export const CustomizedRadios = (props: RadioProps) => {
       aria-labelledby="demo-customized-radios"
       name="customized-radios">
 
-        <FormControlLabel id="YesId" onChange={onChange}  sx={{ paddingTop: "15px", paddingBottom: "8px" }}  className='firstRadioButton' value="yes" control={<BpRadio />} label={<Typography variant="body2"
-            style={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily, fontSize: "16px", fontWeight: theme.typography.body2.fontWeight }}>{props.label1}</Typography>} />
+        <FormControlLabel id="YesId" onChange={onChange}  sx={{ paddingTop: "5px", paddingBottom: "-9px" }}  className='firstRadioButton' value="yes" control={<BpRadio />} label={<Typography variant="body2"
+            style={{ color: theme.palette.black?.two, fontFamily: theme.typography.h1.fontFamily, fontSize: "15px", fontWeight: theme.typography.body2.fontWeight }}>{props.label1}</Typography>} />
         <FormControlLabel id="NoId" onChange={onChange} className='secondRadioButton' value="no" control={<BpRadio />} label={<Typography variant="body2" sx={{ color: theme.palette.black?.two,
-            fontFamily: theme.typography.h1.fontFamily, fontSize: "16px", fontWeight: theme.typography.body2.fontWeight }}>{props.label2}</Typography>} />
+            fontFamily: theme.typography.h1.fontFamily, fontSize: "15px", fontWeight: theme.typography.body2.fontWeight }}>{props.label2}</Typography>} />
 
       </RadioGroup>
     </FormControl>
   );
 }
-

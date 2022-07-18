@@ -7,10 +7,10 @@ import { ReactComponent as Logo } from "../../../images/icons/logo.svg"
 import "./index.css"
 import { theme } from '../../../Theme'
 
-export interface locationProp {
+export interface LocationProp {
   location?: string
 }
-export const Header = (props: locationProp) => {
+export const Header = (props: LocationProp) => {
   const { location } = props
   return (
 
@@ -54,7 +54,7 @@ export const Header = (props: locationProp) => {
           left: "1100px",
           top: "22px",
           paddingBottom: '22px',
-          paddingRight: '20px'
+          paddingRight: '30px'
         }} />
 
         <Notification data-testid="svgIcon" style={{
@@ -63,7 +63,7 @@ export const Header = (props: locationProp) => {
           left: "1200px",
           top: "22px",
           paddingBottom: '22px',
-          paddingRight: '20px'
+          paddingRight: '30px'
         }} />
 
         <Avatar data-testid="svgIcon" style={{

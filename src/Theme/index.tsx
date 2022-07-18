@@ -26,6 +26,7 @@ const theme = createTheme({
             one: "#D6D6D6",
             two: "#E9EBE9",
             three: "#F7F7F7",
+            four:'#E5E5E5'
         },
         accent: {
             one: "#ED8F02",
@@ -87,7 +88,7 @@ const theme = createTheme({
             fontFamily: "Montserrat",
             fontWeight: 500,
             fontSize: "12px",
-            lineHeight: "26px",
+            lineHeight: "16px",
             display: "block",
             letterSpacing:" 0.03333em",
         },

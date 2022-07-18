@@ -1,10 +1,11 @@
 import { rest } from 'msw';
-const data = {
+export const data = {
   cards: [
     {
       id: 0,
       icons: "/images/icons/hp.svg",
       company: "HP",
+      job:'User Experience Designer',
       location: "Hyderabad, Telangana, India",
       bike: true,
       bus: true,
@@ -12,50 +13,97 @@ const data = {
       train: true,
       postedTime: "1hr 36 mins ago",
       state: false,
+      isApplied:false,
+      isSaved:false,
+      isDesc:false
     },
     {
       id: 1,
-      icons: "/images/icons/mythra.svg",
-      company: "Mynthra",
-      location: "Hyderabad, Telangana, India",
-      bike: true,
-      bus: true,
-      car: true,
-      train: true,
-      postedTime: "36 mins ago",
-      state: false,
-    },
-    {
-      id: 2,
-      icons: "images/icons/ola.svg",
-      company: "Ola",
-      location: "Hyderabad, Telangana, India",
-      bike: true,
-      bus: true,
-      car: true,
-      train: true,
-      postedTime: "1hr ago",
-      state: false,
-    },
-    {
-      id: 3,
-      icons: "images/icons/hp.svg",
+      icons: "/images/icons/instagram.svg",
+      job:'User Experience Designer',
       company: "HP",
       location: "Hyderabad, Telangana, India",
       bike: true,
       bus: true,
       car: true,
       train: true,
-      postedTime: "1hr 36 mins ago",
+      postedTime: "45 mins ago",
       state: false,
+      isApplied:false,
+      isSaved:false,
+      isDesc:false
+    },
+    {
+      id: 2,
+      icons: "/images/icons/bmw.svg",
+      job:'User Experience Designer',
+      company: "HP",
+      location: "Hyderabad, Telangana, India",
+      bike: true,
+      bus: true,
+      car: true,
+      train: true,
+      postedTime: "3 days ago",
+      state: false,
+      isApplied:false,
+      isSaved:false,
+      isDesc:false
+    },
+    {
+      id: 3,
+      icons: "/images/icons/myntra.svg",
+      job:'User Experience Designer',
+      company: "Mntra",
+      location: "Hyderabad, Telangana, India",
+      bike: true,
+      bus: true,
+      car: false,
+      train: true,
+      postedTime: "4 days ago",
+      state: false,
+      isApplied:false,
+      isSaved:false,
+      isDesc:false
+    },
+    {
+      id: 4,
+      icons: "/images/icons/twitter.svg",
+      company: "Twitter",
+      job:'User Experience Designer',
+      location: "Hyderabad, Telangana, India",
+      bike: true,
+      bus: true,
+      car: true,
+      train: true,
+      postedTime: "1 week ago",
+      state: false,
+      isApplied:false,
+      isSaved:false,
+      isDesc:false
+    },
+    {
+      id: 5,
+      icons: "/images/icons/wipro.svg",
+      company: "Wipro",
+      job:'User Experience Designer',
+      location: "Hyderabad, Telangana, India",
+      bike: true,
+      bus: true,
+      car: true,
+      train: true,
+      postedTime: "10 days ago",
+      state: false,
+      isApplied:false,
+      isSaved:false,
+      isDesc:false
     },
   ],
 };
 
-const baseUrl = "http://localhost:3001/api";
+export const baseUrl = "http://localhost:3001/api";
 
 export const handlers = [
-  rest.get(baseUrl+"/cards", (req, res, ctx) => {
+  rest.get(baseUrl+"/cards", (_req, res, ctx) => {
     return res(ctx.json(data));
   }),
 
@@ -66,7 +114,6 @@ export const handlers = [
 
   rest.patch(baseUrl+"/card/:id", (req, res, ctx) => {
     const { id } = req.params;
-    console.log(id)
     data.cards = data.cards.map( card => {
       if(card.id !== parseInt(id))
       {
@@ -74,7 +121,6 @@ export const handlers = [
       }
       return req.body;
     })
-    console.log(data.cards.at(id));
     return res(ctx.status(200),ctx.json({status : "Updated Card"}));
 }),
 ];

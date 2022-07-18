@@ -17,13 +17,13 @@ export const CheckBoxText = (props: CheckBoxTextProps) => {
           value={label}
           control={<CheckBox value={label} onChange={onChange} />}
           checked={check}
-          label={<Typography variant="body2" sx={{fontSize:"16px", fontFamily:theme.typography.body1.fontFamily ,height:'22px',
-                    paddingTop: "9px",paddingBottom:"8px",fontWeight:theme.typography.body2.fontFamily, color: theme.palette.black?.two }}>{label}
+          label={<Typography variant="body2" sx={{fontSize:"14px", fontFamily:theme.typography.body1.fontFamily ,height:'23px',
+                    fontWeight:theme.typography.body2.fontFamily, color: theme.palette.black?.two }}>{label}
                 </Typography>}
           labelPlacement="end"
         />
       </FormGroup>
-    </div>
+    </div> 
   )
 }
 

@@ -19,7 +19,6 @@ interface InputProps {
   locations?: any;
   onChange?: (e: React.SyntheticEvent, value: any) => void;
   value?: any;
-  clear?: boolean;
 }
 
 function CityInput(props: InputProps) {
@@ -28,7 +27,6 @@ function CityInput(props: InputProps) {
   const noTextBorder = classes.inputfield + " " + classes.addborder;
   let borderstyle = noTextBorder;
 
-console.log(props.locations);
   return (
     <ThemeProvider theme={theme}>
       <Autocomplete
@@ -36,7 +34,7 @@ console.log(props.locations);
         multiple={props.multiple}
         limitTags={props.limitTags}
         disableCloseOnSelect
-        disableClearable={props.clear}
+        disableClearable
         size={props.size}
         id="combo-box-demo"
         data-testid="Auto-complete"
@@ -44,7 +42,6 @@ console.log(props.locations);
         options={props.locations}
         getOptionLabel={(option: OptionProp) => option?.area}
         defaultValue={props.value}
-//         defaultValue={(option: OptionProp, value: OptionProp) => {if(JSON.stringify(option) === JSON.stringify(value)) return option} }
         onChange={props.onChange}
         onBlur={(e) => {
           if (
@@ -110,6 +107,9 @@ const useStyles = makeStyles({
       lineHeight: theme.typography.caption2?.lineHeight,
       color: theme.palette.black?.three,
     },
+    "& .MuiAutocomplete-tag":{
+      paddigLeft:"10px !important",
+    }
   },
 
   chip: {
@@ -119,12 +119,14 @@ const useStyles = makeStyles({
 
   addborder: {
     border: "2px solid " + theme.palette.gray?.one,
+    paddingLeft:"10px",
     "& .MuiInputBase-input": {
       marginLeft: "1rem",
     },
   },
 
   addborderfocused: {
+    paddingLeft:"10px",
     border: "2px solid " + theme.palette.green?.four,
     boxShadow: "0px 3px 3px " + theme.palette.gray?.one,
     "& .MuiInputBase-input": {

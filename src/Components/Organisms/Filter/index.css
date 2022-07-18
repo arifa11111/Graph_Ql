@@ -12,23 +12,33 @@
   width: 140px;
   height: 160px;
 }
-
+.clearText{
+  border-radius: 3.5px;
+  width: 32px;
+  height: 25px;
+  padding-Top:100px;
+  border-style: solid dotted inset double;
+  border-color:  #30A193 ;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
 .filterOuterBox {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   max-width: 546px;
+  width:100%;
   height: 464px;
-  
 }
 .innerBox {
-  transform: translate(100%,10%);
+  transform: translate(82%,10%);
   background-color: white;
-  max-width: 498px;
-  height:550px;
-  margin-bottom: 15px;
-  padding-left: 32px;
-  padding-right: 16px;
+  width: 546px;
+  height:464px;
+  margin-bottom: 65px;
+  padding-left: 22px;
+  padding-right: 34px;
   border-radius: 8px;
 }
 .css-ahj2mt-MuiTypography-root {
@@ -41,11 +51,10 @@
   flex-direction: row;
   width:750px
 }
+
 @media screen and (max-width: 414px) {
   .innerBox {
     overflow-y: auto;
   }
  
 }
-
- 

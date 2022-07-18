@@ -58,7 +58,7 @@ const BpCheckedIcon = styled(BpIcon)({
   '&:before': {
     display: 'block',
     padding: 0,
-    margin: 0,
+    marginTop: -8,
     width: 16,
     height: 16,
     backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
@@ -66,5 +66,3 @@ const BpCheckedIcon = styled(BpIcon)({
   },
 
 });
-
-

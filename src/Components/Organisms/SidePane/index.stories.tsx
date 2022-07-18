@@ -12,4 +12,5 @@ const Template: ComponentStory<typeof Sidepane> = (args) => (
 
 export const sidePane = Template.bind({});
 sidePane.args = {
-};
+  setDesc:()=>{}
+}

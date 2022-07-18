@@ -16,7 +16,7 @@ import { useState } from "react";
 import back from "../../../images/icons/back.svg"
 import { Location } from "../../Molecules/LocationDescription/index"
 import { OlaCard } from "../../Molecules/Ola/index"
-import Image from "../../Molecules/MapView/Map"
+import AqiImage from "../../Molecules/MapView/Map"
 import MapView from "../../../images/icons/mapview.svg"
 import greyRupee from "../../../images/icons/greyrupee.svg"
 import { Upload } from "../UploadResume"
@@ -98,7 +98,7 @@ export const DescCard = (props: DescProps) => {
                                 <Box className='hrs'><Box sx={{ transform: 'translate(10px,1px)' }}><Icons source={greyRupee} height={'9px'} width={'10px'} /> </Box>
                                     {cabDetails[0]}<span className='dot'></span>{cabDetails[1]}<span className='dot'></span>{cabDetails[2]}</Box>
 
-                                <Box sx={{ paddingTop: '10px' }}><Image src={MapView} width={361} height={147} />
+                                <Box sx={{ paddingTop: '10px' }}><AqiImage src={MapView} width={361} height={147} />
                                     <Typography variant='caption' sx={{ color: theme.palette.green?.six, wordSpacing: '1px' }}>{google}</Typography> </Box></>)}
                     </Grid>
                 )}

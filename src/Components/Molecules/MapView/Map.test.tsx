@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import Image from './Map';
+import AqiImage from './Map';
 
 it('renders images', () => {
   render(
-    <Image src={'mapview.png'} height={0} width={0}></Image>,
+    <AqiImage src={'mapview.png'} height={0} width={0}></AqiImage>,
   );
 
   const image = screen.getByTestId('image-box');

@@ -1,5 +1,5 @@
 import { ComponentStory } from '@storybook/react';
-import Image from './Map';
+import AqiImage from './Map';
 import mapview from "../../../images/icons/mapview.svg";
 import roadmap from "../../../images/icons/maps.svg"
 import aqi894 from "../../../images/icons/aqibord.svg"
@@ -12,8 +12,8 @@ export default {
   component: Image,
 };
 
-const Template : ComponentStory<typeof Image> = (args) => (
-  <Image {...args} />
+const Template : ComponentStory<typeof AqiImage> = (args) => (
+  <AqiImage {...args} />
 );
 
 export const MapView = Template.bind({});

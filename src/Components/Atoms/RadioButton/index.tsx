@@ -34,7 +34,7 @@ export default function CustomizedRadiosAtom() {
   );
 }
 
-const BpIcon = styled('span')(({ theme }) => ({
+const BpIcon = styled('span')({
   borderRadius: '50%',
   width: 16,
   height: 16,
@@ -50,7 +50,7 @@ const BpIcon = styled('span')(({ theme }) => ({
         background:
           theme.palette.mode === 'dark' ? 'rgba(57,75,89,.5)' : 'rgba(74, 186, 173, 1)',
       },
-}));
+})
 
 const BpCheckedIcon = styled(BpIcon)({
   backgroundColor: '#4ABAAD',
@@ -58,7 +58,7 @@ const BpCheckedIcon = styled(BpIcon)({
   '&:before': {
     display: 'block',
     padding: 0,
-    margin: 0,
+    marginTop: -8,
     width: 16,
     height: 16,
     backgroundImage: 'radial-gradient(#fff,#fff 28%,transparent 32%)',
@@ -66,5 +66,3 @@ const BpCheckedIcon = styled(BpIcon)({
   },
 
 });
-
-

@@ -66,4 +66,10 @@ export const metro=["Catch a blue line metro towards Raidurg"]
 
 
 export const PageHeading1 = ["Recommended for you","Job list"]
-export const PageHeading2 = ["Based on your profile,skills and search history.","Based on your search"]
+export const PageHeading2 = ["Based on your profile, skills and search history.","Based on your search"]
+export const searchJobskills=["frontend developer", "Full stack developer"]
+export const searchJobLocation=["Hyderabad", "Mumbai"]
+export const greenCommuteRoutes=['Green Commute Routes']
+export const google=['View in Google Maps']
+export const placeholder=['Search Skills','Location']
+export const fileUpload=['File Upload']

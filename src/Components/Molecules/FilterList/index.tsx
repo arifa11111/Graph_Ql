@@ -12,7 +12,7 @@ export interface FilterListProps {
 export const FilterList = (props: FilterListProps) => {
 
   return (
-    <Grid data-testid="filterListId" sx={{ paddingBottom: "24px", paddingRight: "7.5px" }} className="tableParameters" item sm={4} >
+    <Grid data-testid="filterListId" sx={{ paddingBottom: "24px", paddingRight: "7.5px",marginLeft:"0px",fontFamily:theme.typography.fontFamily }} className="tableParameters" item sm={4} >
 
       <Typography variant='body1' sx={{
         fontFamily: theme.typography.body1.fontFamily, paddingBottom: "12px", fontSize: "16px",

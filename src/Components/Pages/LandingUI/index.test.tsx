@@ -1,14 +1,19 @@
 import { fireEvent, render, screen } from "@testing-library/react"
+import { BrowserRouter } from "react-router-dom"
 import LandingUI from "."
 
+const fun=()=>{
+    render(<BrowserRouter><LandingUI/></BrowserRouter>)
+
+}
 it("Landing Ui testing", () => {
-    render(<LandingUI/>);
+    fun()
     const LandingElement = screen.getByTestId("stepper");
     expect(LandingElement).toBeInTheDocument()
 })
 
 it("Landing Ui testing Active1", () => {
-    render(<LandingUI/>);
+    fun()
     const InputBaseElement = screen.getByRole("combobox");
     fireEvent.change(InputBaseElement,{target:{value:"Ameerpet, Hyderabad, Telangana"}})
     const InputBaseElementAfterFire = screen.getAllByRole("option")[0];
@@ -18,7 +23,7 @@ it("Landing Ui testing Active1", () => {
 })
 
 it("Landing Ui testing Active2", () => {
-    render(<LandingUI/>);
+    fun()
     const ButtonElement = screen.getByTestId("btnNext");
     fireEvent.click(ButtonElement)
     const InputBaseElement = screen.getByRole("combobox");
@@ -30,21 +35,25 @@ it("Landing Ui testing Active2", () => {
 })
 
 it("Landing Ui testing Active3", () => {
-    render(<LandingUI/>);
+    fun()
     const ButtonElement = screen.getByTestId("btnNext");
     fireEvent.click(ButtonElement)
+    const InputBaseElement0 = screen.getByRole("combobox");
+    fireEvent.change(InputBaseElement0,{target:{value:"Hyderabad"}})
+    const InputBaseElementAfterFire0 = screen.getAllByRole("option")[0];
+    fireEvent.click(InputBaseElementAfterFire0)
     const AgainButtonElement = screen.getByTestId("btnNext");
     fireEvent.click(AgainButtonElement)
     const InputBaseElement = screen.getByRole("combobox");
     fireEvent.change(InputBaseElement,{target:{value:"UI/Ux Designer"}})
     const InputBaseElementAfterFire = screen.getAllByRole("option")[0];
     fireEvent.click(InputBaseElementAfterFire)
-    const LogoChangeElement = screen.getByText("Jobs found in");
+    const LogoChangeElement = screen.getByText("Jobs found in Hyderabad");
     expect(LogoChangeElement).toBeInTheDocument()
 })
 
 it("Landing Ui testing BackButton", () => {
-    render(<LandingUI/>);
+    fun()
     const ButtonElement = screen.getByTestId("btnNext");
     fireEvent.click(ButtonElement) 
     const BackButtonElement = screen.getByTestId("btnBack");

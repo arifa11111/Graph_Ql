@@ -10,6 +10,8 @@ import { makeStyles } from "@mui/styles";
 import "./index.css";
 import { inputbasehead, steps } from "../../../Data/Cities";
 import { styled } from "@mui/material";
+import { Link } from 'react-router-dom';
+
 
 const StepBox = styled(Box)({
   paddingTop: "64px",
@@ -22,6 +24,7 @@ interface StepperProps {
   activeStep?: number;
   handleNext?: () => void;
   handleBack?: () => void;
+  navigateUrl:string;
 }
 
 export default function HomePageStepper(props: StepperProps) {
@@ -29,13 +32,11 @@ export default function HomePageStepper(props: StepperProps) {
   const handleNext = props.handleNext;
   const handleBack = props.handleBack;
   const activeStep = props.activeStep;
-
   return (
     <>
       <Box sx={{ width: "100%", padding: "0px 8px 0px 8px" }}>
         <Stepper data-testid="stepper" connector={null} activeStep={activeStep}>
-          {steps.map((label, index) => {
-            const stepProps: { completed?: boolean } = {};
+          {steps.map((label) => {
             const labelProps: {
               optional?: React.ReactNode;
             } = {};
@@ -48,6 +49,7 @@ export default function HomePageStepper(props: StepperProps) {
                     color: theme.palette.green?.three, // circle color (COMPLETED)
                     fontWeight: theme.typography.subtitle1.fontWeight,
                     height: "40px",
+                    
                   },
 
                   "& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel":
@@ -61,6 +63,7 @@ export default function HomePageStepper(props: StepperProps) {
                     color: theme.palette.green?.three,
                     fontFamily: theme.typography.subtitle1.fontFamily,
                     fontWeight: theme.typography.subtitle1.fontWeight, // circle color (ACTIVE)
+
                   },
 
                   "& .MuiStepLabel-label .Mui-active.MuiStepLabel-alternativeLabel":
@@ -68,6 +71,7 @@ export default function HomePageStepper(props: StepperProps) {
                       color: theme.palette.green?.three, // Just text label (ACTIVE)
                       fontFamily: theme.typography.subtitle1.fontFamily,
                       fontWeight: theme.typography.subtitle1.fontWeight,
+
                     },
 
                   "& .MuiStepLabel-root .Mui-active .MuiStepIcon-text": {
@@ -85,13 +89,14 @@ export default function HomePageStepper(props: StepperProps) {
                 /* disable stepper label text color */
                 "& .css-16ubnlw-MuiStepLabel-labelContainer":
                 {
-                  height:"20px",
+                  height:"21px",
                   color: theme.palette.black?.one
                 },
 
                 /*circle size */
                 "& .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root": {
                   fontSize: "40px",
+                  paddingRight:"5px",
                   color:  theme.palette.gray?.three,
                   fontWeight: theme.typography.subtitle2.fontWeight,
                 },
@@ -103,16 +108,17 @@ export default function HomePageStepper(props: StepperProps) {
 
                 "& .span.MuiStepLabel-label.Mui-completed.css-qivjh0-MuiStepLabel-label": {
                   width: "100px",
-                },
+                  },
 
                   /* finished circle label dimensions */
                   "& .css-qivjh0-MuiStepLabel-label": {
                     fontFamily: theme.typography.subtitle1.fontFamily,
                     lineHeight: "2.9",
-                  },
+                   
+                  }
                 }}
               >
-                <StepLabel {...labelProps}>{label}</StepLabel>
+                <StepLabel sx={{paddingRight:"24px"}} {...labelProps}>{label}</StepLabel>
               </Step>
             );
           })}
@@ -127,7 +133,7 @@ export default function HomePageStepper(props: StepperProps) {
         <StepBox>
           {activeStep === 0 && (
             <Box data-testid="box1">
-              <Typography variant="subtitle1" paddingBottom={"8px"}>{inputbasehead.at(0)}</Typography>
+              <Typography variant="subtitle1" paddingRight={"8px"} paddingBottom={"8px"}>{inputbasehead.at(0)}</Typography>
               {props.step1}
             </Box>
           )}
@@ -145,12 +151,9 @@ export default function HomePageStepper(props: StepperProps) {
           )}
         </StepBox>
         {activeStep === steps.length ? (
-          <React.Fragment>
-            {/* <Typography sx={{ mt: 2, mb: 1 }}>
-              navigates to findjobs page
-            </Typography> */}
-          </React.Fragment>
-        ) : (
+          <>
+           </>)
+         : (
           <React.Fragment>
             <Box
               sx={{
@@ -171,10 +174,10 @@ export default function HomePageStepper(props: StepperProps) {
                   Back
                 </Button>
               )}
-
-              <Button data-testid="btnNext" variant={"contained"} className={styles.nextButton} onClick={handleNext}>
+            <Link to={activeStep === 2 ? props.navigateUrl : ''} style={{ textDecoration: 'none' }} >
+              <Button data-testid="btnNext" variant={"contained"} className={styles.nextButton} onClick={handleNext} sx={{textTransform: 'none',boxShadow:'none'}}>
                 Next
-              </Button>
+              </Button></Link>
             </Box>
           </React.Fragment>
         )}
@@ -203,6 +206,8 @@ const useStyles = makeStyles({
     width: "140px",
     height: "46px",
     borderRadius: "8px !important",
+    fontSize:'14px !important',
+    fontWeight:"600 !important",
     border: "1px solid "+theme.palette.green?.six +" !important",
     color: theme.palette.green?.six +" !important",
     "&:hover": {
@@ -214,6 +219,9 @@ const useStyles = makeStyles({
     fontFamily: theme.typography.body1.fontFamily,
     width: "140px",
     height: "46px",
+    fontSize:'14px !important',
+    fontWeight:"600 !important",
+    textTransform:'lowercase',
     borderRadius: "8px !important",
     backgroundColor: theme.palette.green?.six + " !important",
     borderColor: "1px solid "+theme.palette.green?.six +" !important",
@@ -221,6 +229,7 @@ const useStyles = makeStyles({
     "&:hover": {
       backgroundColor: theme.palette.green?.six + " !important",
       color: theme.palette.light?.four,
+      boxShadow:'none'
     },
   },
 });

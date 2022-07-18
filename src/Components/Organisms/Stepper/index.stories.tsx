@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react";
+import { BrowserRouter } from "react-router-dom";
 import HomePageStepper from ".";
 
 export default {
@@ -6,9 +7,9 @@ export default {
     component: HomePageStepper
 }
 
-const Template: Story<any> = args => <HomePageStepper />
+const Template: Story<any> = args => <BrowserRouter><HomePageStepper {...args}/></BrowserRouter>
 
 export const stepperOranism = Template.bind({})
 stepperOranism.args = {
-
+    navigateUrl:'/home/'
 }

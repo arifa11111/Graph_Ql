@@ -8,7 +8,7 @@ interface MyProps {
   text?: string;
 }
 
-const Image = (props: MyProps) => {
+const AqiImage = (props: MyProps) => {
   const styles = {
     height: props.height,
     maxWidth: props.width,
@@ -33,7 +33,6 @@ const Image = (props: MyProps) => {
   }
 
   return (
-    // <img src={props.src} style={styles} alt={"loading..."} ></img>
     <Box style={styles}>
       <Box style={innerStyles} data-testid="image-box">
         <Typography variant="h1" style={typoStyles}>
@@ -43,4 +42,4 @@ const Image = (props: MyProps) => {
     </Box>
   );
 };
-export default Image;
+export default AqiImage;

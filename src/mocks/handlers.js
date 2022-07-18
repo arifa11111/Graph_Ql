@@ -1,11 +1,11 @@
 import { rest } from 'msw';
-const data = {
+export const data = {
   cards: [
     {
       id: 0,
       icons: "/images/icons/hp.svg",
       company: "HP",
-      job:'User Experiance Designer',
+      job:'User Experience Designer',
       location: "Hyderabad, Telangana, India",
       bike: true,
       bus: true,
@@ -14,13 +14,13 @@ const data = {
       postedTime: "1hr 36 mins ago",
       state: false,
       isApplied:false,
-      isSaved:true,
+      isSaved:false,
       isDesc:false
     },
     {
       id: 1,
       icons: "/images/icons/instagram.svg",
-      job:'User Experiance Designer',
+      job:'User Experience Designer',
       company: "HP",
       location: "Hyderabad, Telangana, India",
       bike: true,
@@ -35,8 +35,8 @@ const data = {
     },
     {
       id: 2,
-      icons: "images/icons/bmw.svg",
-      job:'User Experiance Designer',
+      icons: "/images/icons/bmw.svg",
+      job:'User Experience Designer',
       company: "HP",
       location: "Hyderabad, Telangana, India",
       bike: true,
@@ -51,8 +51,8 @@ const data = {
     },
     {
       id: 3,
-      icons: "images/icons/myntra.svg",
-      job:'User Experiance Designer',
+      icons: "/images/icons/myntra.svg",
+      job:'User Experience Designer',
       company: "Mntra",
       location: "Hyderabad, Telangana, India",
       bike: true,
@@ -67,9 +67,9 @@ const data = {
     },
     {
       id: 4,
-      icons: "images/icons/twitter.svg",
+      icons: "/images/icons/twitter.svg",
       company: "Twitter",
-      job:'User Experiance Designer',
+      job:'User Experience Designer',
       location: "Hyderabad, Telangana, India",
       bike: true,
       bus: true,
@@ -83,9 +83,9 @@ const data = {
     },
     {
       id: 5,
-      icons: "images/icons/wipro.svg",
+      icons: "/images/icons/wipro.svg",
       company: "Wipro",
-      job:'User Experiance Designer',
+      job:'User Experience Designer',
       location: "Hyderabad, Telangana, India",
       bike: true,
       bus: true,
@@ -100,10 +100,10 @@ const data = {
   ],
 };
 
-const baseUrl = "http://localhost:3001/api";
+export const baseUrl = "http://localhost:3001/api";
 
 export const handlers = [
-  rest.get(baseUrl+"/cards", (req, res, ctx) => {
+  rest.get(baseUrl+"/cards", (_req, res, ctx) => {
     return res(ctx.json(data));
   }),
 

@@ -23,6 +23,7 @@ declare module "@mui/material/styles" {
         one?: string;
         two?: string;
         three?: string;
+        four?:string;
     },
     accent?: {
         one?: string;
@@ -57,6 +58,7 @@ declare module "@mui/material/styles" {
         one?: string;
         two?: string;
         three?: string;
+        four?:string;
     },
     accent?:{
         one?: string;

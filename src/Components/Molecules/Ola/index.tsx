@@ -6,7 +6,7 @@ import { Icons } from '../../Atoms/IconsAtom';
 
 interface MyProps {
     Icon: string;
-};
+}
 
 const useStyles = makeStyles({
     felxClass:{
@@ -42,7 +42,7 @@ export const OlaCard = (props:MyProps) =>{
                             </Box>
                             <Box className= {classes.felxClass}>
                             <Typography variant='caption2' sx={{color:'#656e66',width:'89px',paddingLeft:'5px'}}>Approximately  </Typography>
-                            <div><Icons source={rupee} height={'9px'} width={'10px'} style={{padding:'0px 2px 4px 27px'}} /> </div><Typography variant='caption2'>45</Typography>
+                            <div><Icons source={rupee} height={'9px'} width={'10px'} style={{padding:'0px 2px 9px 27px'}} /> </div><Typography variant='caption2'>45</Typography>
                             </Box>
                         </Box>
                     </Box>
@@ -50,5 +50,5 @@ export const OlaCard = (props:MyProps) =>{
                     <Typography variant='caption'>Book Now</Typography>
                     </Box>
                 </Box>
-        );
+        )
 }  

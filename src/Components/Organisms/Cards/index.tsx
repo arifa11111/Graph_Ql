@@ -8,10 +8,8 @@ import Car from "../../../images/icons/car.svg";
 import Metro from "../../../images/icons/train.svg";
 import { theme } from "../../../Theme";
 import { makeStyles } from "@mui/styles";
-import { DescCard } from "../Description";
-import {descProps} from '../../Organisms/Description'
 
-interface Props  {
+interface Props {
   icons: string;
   job: string;
   company: string;
@@ -24,29 +22,17 @@ interface Props  {
   state: boolean;
 }
 
-
-
 function Cards(props: Props) {
   const classes = useStyles();
-  const [descCard,setDescCard] = useState(false)
   const [large, setLarge] = useState<boolean>(props.state);
-  const [wholeBorder, setWholeBorder] = useState(classes.largeCard);
-  
+  const [wholeBorder, setWholeBorder] = useState<string>(classes.largeCard);
   return (
-    <>
-    {descCard &&
-      <Box sx={{position:'fixed',left:'665px'}}>
-            <DescCard icon={props.icons} title={props.job} 
-                      company={props.company} address={props.location} 
-                      postedTime={props.postedTime}  />
-      </Box> 
-  }
     <Box
       className={large ? wholeBorder : classes.smallCard}
       data-testid="card-contain"
       sx={{backgroundColor:"white"}}
       onClick={() => {
-        setDescCard(true)
+        
         if (!large) {
           setLarge(!large);
           setWholeBorder(classes.largeCard + " " + classes.clickBorder);
@@ -124,7 +110,7 @@ function Cards(props: Props) {
                 </Typography>
               </Box>
             ) : null}
-            <Box className={classes.smallbottomConFirst}>
+            <Box className={classes.smallbottomConFirst} sx={{paddingTop:'10px'}}>
               {props.bike ? (
                 <Icons source={Bike} height="21px" width="21px" />
               ) : null}
@@ -144,23 +130,22 @@ function Cards(props: Props) {
               large ? classes.largebottomConSec : classes.smallbottomConSec
             }
           >
-            <Typography variant="caption2" color={theme.palette.black?.one}  letterSpacing={"0"}>
+            <Typography variant="caption2" color={theme.palette.black?.one}  letterSpacing={"0"} sx={{paddingTop:'18px'}}>
               {props.postedTime}
             </Typography>
           </Box>
         </Box>
       </Box>
-    </Box></>
+    </Box>
   );
 }
 
 const useStyles = makeStyles({
   smallCard: {
-    maxWidth: "320px",
+    width: "320px",
     maxHeigth: "271px",
     minHeigth: "271px",
     height: "271px",
-    width: "100%",
     borderRadius: "12px",
     backgroundColor:"white",
   },
@@ -190,12 +175,12 @@ const useStyles = makeStyles({
     paddingTop: "23px",
   },
   largeCard: {
+    
     maxWidth: "571px",
     maxHeight: "159px",
     height: "100%",
     width: "100%",
     borderRadius: "12px",
-    boxShadow: "0px 3px 3px " + theme.palette.gray?.one,
     backgroundColor:"white",
   },
   largetopCon: {

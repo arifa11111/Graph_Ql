@@ -1,5 +1,4 @@
 import { Box , styled} from "@mui/material";
-import React from "react";
 
 interface FindProps {
   header?: JSX.Element;
@@ -19,6 +18,7 @@ function FindJobs(props: FindProps) {
         {props.header}
       </HeaderDiv>
       {props.sidepane}
+      
     </Box>
   );
 }

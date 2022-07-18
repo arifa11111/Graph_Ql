@@ -1,7 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
-import CityInput from "../../Molecules/InputBase";
-import { OptionProp } from "../../Molecules/InputBase";
 import HomePageStepper from "../../Organisms/Stepper";
 import { LandingTemplate } from "../../Template/LandingPage";
 import { areas, cities, jobSkills, landuitext } from "../../../Data/Cities";
@@ -12,38 +10,39 @@ import aqi from "../../../images/icons/aqibord.svg";
 import man from "../../../images/icons/man.svg";
 import { theme } from "../../../Theme";
 import paint from "../../../images/icons/paint.svg";
+import CityInput, { OptionProp } from "../../Molecules/InputBase";
 
 const locZeroEmp = {
   width: "281px",
   textAlign: "center",
   marginLeft: "-15px",
-};
+}
 
 const locZero = {
   width: "325px",
   textAlign: "center",
   paddingTop: "40px",
   marginLeft: "-30px",
-};
+}
 
 const JoblocOne = {
   paddingLeft: "32px",
   paddingTop: "30%",
   color: theme.palette.accent?.two,
-};
+}
 
 const jobLocTwo = {
   width: "100%",
   textAlign: "center",
   paddingTop: "40px",
   paddingRight: "10%",
-};
+}
 
 function LandingUI() {
   const [location, setLocation] = useState<OptionProp>({ area: "" });
   const [jobLocation, setJobLocation] = useState<OptionProp[]>([]);
   const [skill, setSkill] = useState<OptionProp[]>([]);
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = React.useState<number>(0);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -86,9 +85,9 @@ function LandingUI() {
     } else {
       imagesBox = (
         <Box>
-          {jobLocation.map((job) => {
+          {jobLocation.map((job,key) => {
             return (
-              <Box display="flex" paddingTop={"32px"}>
+              <Box key={key} display="flex" paddingTop={"32px"}>
                 <Image
                   src={aqi}
                   height={212}
@@ -139,14 +138,13 @@ function LandingUI() {
     <Box>
       <LandingTemplate
         homestepper={
-          <HomePageStepper
+          <HomePageStepper  navigateUrl={'/home/'+location.area}
             step1={
               <CityInput
                 placeholder={"Enter your Location"}
-                clear={true}
                 locations={areas}
                 value={location}
-                onChange={(e: React.SyntheticEvent, value) =>
+                onChange={(_e: React.SyntheticEvent, value) =>
                   setLocation(value)
                 }
               />
@@ -159,7 +157,7 @@ function LandingUI() {
                 size={"medium"}
                 locations={cities}
                 value={jobLocation}
-                onChange={(e: React.SyntheticEvent, value) =>
+                onChange={(_e: React.SyntheticEvent, value) =>
                   setJobLocation(value)
                 }
               />
@@ -172,7 +170,7 @@ function LandingUI() {
                 size={"medium"}
                 locations={jobSkills}
                 value={skill}
-                onChange={(e: React.SyntheticEvent, value) => setSkill(value)}
+                onChange={(_e: React.SyntheticEvent, value) => setSkill(value)}
               />
             }
             activeStep={activeStep}

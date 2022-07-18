@@ -31,3 +31,25 @@ it('description text should render' ,() => {
     const text=screen.getByTestId('text')
     expect(text).toBeInTheDocument()
 })
+
+it('Back Fire' ,() => {
+    description()
+    const text=screen.getByText("Green Commute Routes");
+    fireEvent.click(text);
+    const Back=screen.getAllByAltText("Logo")[2];
+    fireEvent.click(Back);
+    const after=screen.getByText("Green Commute Routes");
+    expect(after).toBeInTheDocument()
+})
+
+it('Tabs fire' ,() => {
+    description()
+    const text=screen.getByText("Green Commute Routes");
+    fireEvent.click(text);
+    const Tab1=screen.getByText("busDesc.svg");
+    fireEvent.click(Tab1);
+    const Tab2=screen.getByText("carDesc.svg");
+    fireEvent.click(Tab2);
+    const ola = screen.getAllByText("Ola");
+    expect(ola.length).toBe(3);
+})

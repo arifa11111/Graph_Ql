@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import AqiImage from './Map';
+import AqiImage from './AqiImage';
 
 it('renders images', () => {
   render(

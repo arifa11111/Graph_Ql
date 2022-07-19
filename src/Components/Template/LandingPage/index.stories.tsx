@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof LandingTemplate> = (args) => ( <BrowserRou
   
 export const LandingTemp = Template.bind({});
     LandingTemp.args = {
-        homestepper: <HomePageStepper navigateUrl='/home/'
+        homestepper: <HomePageStepper
         step1={<CityInput placeholder={"Enter your Location"} locations={areas} value={{area: "Ameerpet, Hyderabad, Telangana"}}/>}
         step2={<CityInput placeholder={"Enter your job location"} multiple={true} limitTags={2} size={"medium"} locations={cities} value={[{area: "Mumbai"},{area: "Hyderabad"}]}/>}
         step3={<CityInput placeholder={"Enter your skills"} multiple={true} limitTags={2} size={"medium"} locations={cities} value={[]}/>}

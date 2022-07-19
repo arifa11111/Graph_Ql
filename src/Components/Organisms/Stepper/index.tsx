@@ -10,8 +10,6 @@ import { makeStyles } from "@mui/styles";
 import "./index.css";
 import { inputbasehead, steps } from "../../../Data/Cities";
 import { styled } from "@mui/material";
-import { Link } from 'react-router-dom';
-
 
 const StepBox = styled(Box)({
   paddingTop: "64px",
@@ -24,7 +22,6 @@ interface StepperProps {
   activeStep?: number;
   handleNext?: () => void;
   handleBack?: () => void;
-  navigateUrl:string;
 }
 
 export default function HomePageStepper(props: StepperProps) {
@@ -174,10 +171,11 @@ export default function HomePageStepper(props: StepperProps) {
                   Back
                 </Button>
               )}
-            <Link to={activeStep === 2 ? props.navigateUrl : ''} style={{ textDecoration: 'none' }} >
+            {/* <Link to={activeStep === 2 ? props.navigateUrl:''} style={{ textDecoration: 'none' }} > */}
               <Button data-testid="btnNext" variant={"contained"} className={styles.nextButton} onClick={handleNext} sx={{textTransform: 'none',boxShadow:'none'}}>
                 Next
-              </Button></Link>
+              </Button>
+              {/* </Link> */}
             </Box>
           </React.Fragment>
         )}

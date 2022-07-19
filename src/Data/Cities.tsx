@@ -51,7 +51,7 @@ export const sidepageheading = ["Find Jobs", "Saved Jobs"]
 export const inputbasehead = ["Where do  you stay ?", "Where do you want to work?", "What do you want to do?"];
 export const steps = ["Your Location", "Job Location", "Your Skills"];
 export const landuitext = ["Enter Location to know Time Air Quality Index (AQI)","Real Time Air Quality Index(AQI) in this location"];
-export const distance = ["Distance","0 - 10 Kms", "11 -20 Kms", "21 - 30 Kms","31 - 40 Kms"]; 
+export const distance = ["Distance","0 - 10 Kms", "11 - 20 Kms", "21 - 30 Kms","31 - 40 Kms"]; 
 export const datePosted = ["Date Posted","Past 24 hours", "Past week", "Past month","Anytime"]; 
 export const jobType = ["Job Type","Full time", "Internship", "Contract","Remote"]; 
 export const experienceLevel = ["Experience Level","Fresher", "Mid - level", "Director","Executive"]; 
@@ -67,7 +67,7 @@ export const metro=["Catch a blue line metro towards Raidurg"]
 
 export const PageHeading1 = ["Recommended for you","Job list"]
 export const PageHeading2 = ["Based on your profile, skills and search history.","Based on your search"]
-export const searchJobskills=["frontend developer", "Full stack developer"]
+export const searchJobskills=["User Experience Designer", "Full stack developer"]
 export const searchJobLocation=["Hyderabad", "Mumbai"]
 export const greenCommuteRoutes=['Green Commute Routes']
 export const google=['View in Google Maps']

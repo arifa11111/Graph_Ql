@@ -48,16 +48,11 @@ it("Landing Ui testing Active3", () => {
     fireEvent.change(InputBaseElement,{target:{value:"UI/Ux Designer"}})
     const InputBaseElementAfterFire = screen.getAllByRole("option")[0];
     fireEvent.click(InputBaseElementAfterFire)
-    const LogoChangeElement = screen.getByText("Jobs found in Hyderabad");
-    expect(LogoChangeElement).toBeInTheDocument()
 })
 
 it("Landing Ui testing BackButton", () => {
     fun()
-    const ButtonElement = screen.getByTestId("btnNext");
-    fireEvent.click(ButtonElement) 
-    const BackButtonElement = screen.getByTestId("btnBack");
-    fireEvent.click(BackButtonElement);
+    expect(window.location.pathname).toBe('/')
     const LogoChangeElement = screen.getByText("Enter Location to know Time Air Quality Index (AQI)");
     expect(LogoChangeElement).toBeInTheDocument()
 })

@@ -15,12 +15,15 @@ export const data = {
       state: false,
       isApplied:false,
       isSaved:false,
-      isDesc:false
+      filter:{
+        distance:"0 - 10 Kms",
+        location:"Hyderabad"
+      }
     },
     {
       id: 1,
       icons: "/images/icons/instagram.svg",
-      job:'User Experience Designer',
+      job:'Full stack developer',
       company: "HP",
       location: "Hyderabad, Telangana, India",
       bike: true,
@@ -31,7 +34,10 @@ export const data = {
       state: false,
       isApplied:false,
       isSaved:false,
-      isDesc:false
+      filter:{
+        distance:"11 - 20 Kms",
+        location:"Hyderabad"
+      }
     },
     {
       id: 2,
@@ -47,14 +53,17 @@ export const data = {
       state: false,
       isApplied:false,
       isSaved:false,
-      isDesc:false
+      filter:{
+        distance:"21 - 30 Kms",
+        location:"Hyderabad"
+      }
     },
     {
       id: 3,
       icons: "/images/icons/myntra.svg",
       job:'User Experience Designer',
-      company: "Mntra",
-      location: "Hyderabad, Telangana, India",
+      company: "Myntra",
+      location: "Mumbai, Maharastra, India",
       bike: true,
       bus: true,
       car: false,
@@ -63,14 +72,17 @@ export const data = {
       state: false,
       isApplied:false,
       isSaved:false,
-      isDesc:false
+      filter:{
+        distance:"31 - 40 Kms",
+        location:"Mumbai"
+      }
     },
     {
       id: 4,
       icons: "/images/icons/twitter.svg",
       company: "Twitter",
       job:'User Experience Designer',
-      location: "Hyderabad, Telangana, India",
+      location: "Mumbai, Maharastra, India",
       bike: true,
       bus: true,
       car: true,
@@ -79,14 +91,17 @@ export const data = {
       state: false,
       isApplied:false,
       isSaved:false,
-      isDesc:false
+      filter:{
+        distance:"0 - 10 Kms",
+        location:"Mumbai"
+      }
     },
     {
       id: 5,
       icons: "/images/icons/wipro.svg",
       company: "Wipro",
-      job:'User Experience Designer',
-      location: "Hyderabad, Telangana, India",
+      job:'Full stack developer',
+      location: "Mumbai, Maharastra, India",
       bike: true,
       bus: true,
       car: true,
@@ -95,7 +110,10 @@ export const data = {
       state: false,
       isApplied:false,
       isSaved:false,
-      isDesc:false
+      filter:{
+        distance:"11 - 20 Kms",
+        location:"Mumbai"
+      }
     },
   ],
 };

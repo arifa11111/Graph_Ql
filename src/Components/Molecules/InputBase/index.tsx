@@ -10,7 +10,6 @@ export interface OptionProp {
   AQI?: string;
 }
 
-
 interface InputProps {
   multiple?: boolean;
   limitTags?: number;

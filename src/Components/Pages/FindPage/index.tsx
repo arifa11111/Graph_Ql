@@ -6,12 +6,14 @@ import { Filter } from '../../Organisms/Filter/index'
 import FindJobs from '../../Template/FindJobs'
 import { theme } from '../../../Theme/index'
 import Cards from '../../Organisms/Cards'
-import { PageHeading1, PageHeading2, searchJobLocation ,searchJobskills} from "../../../Data/Cities"
+import { PageHeading1, PageHeading2, searchJobLocation ,searchJobskills, distance} from "../../../Data/Cities"
 import { DescCard } from '../../Organisms/Description'
 import { TabContext,  TabPanel } from "@mui/lab";
 import { useParams } from 'react-router';
 import * as service from "../../../service/service";
-import Sidepane from '../../Organisms/SidePane'
+import Sidepane from '../../Organisms/SidePane';
+import { arrayValue } from '../../Organisms/Filter/index'
+
 
 export interface CardsProps {
   id: number;
@@ -26,26 +28,27 @@ export interface CardsProps {
   postedTime: string;
   state: boolean;
   isSaved: boolean;
-
+  filter:{
+    distance:string;
+    location:string;
+  };
 }
 let heading1=PageHeading1[0],heading2=PageHeading2[0]
 
 function FindPage() {
-  const { location } = useParams();
+  const { location } = useParams()
   const [cards, setCards] = useState<CardsProps[]>([])
   const [descCard, setDescCard] = useState<boolean>(false)
   const [id, setId] = useState<number>(0)
   const [tabNo,setTabNo] = useState<string>("2")
+  const [dista,setDista] =useState<string[]>(distance)
+  const [sloc,setSloc] = useState<string>("")
+  const [srole,setSrole] = useState<string>("")
 
   const allCards = async () => {
     const values = await service.getCards();
-    if (!(await values).ok) {
-      console.error("No cards");
-    }
-    console.warn("Check Warn");
     const data = await values.json();
-    console.warn(data);
-    if (!(await values).ok || !data) {
+    if (!values.ok || !data) {
       console.error("No cards");
     }
     let datastr = JSON.stringify(data.cards);
@@ -57,6 +60,7 @@ function FindPage() {
     allCards();
   }, []);
 
+
   const handleSave = async (id: number) => {
     let card = cards.at(id);
     if (card?.isSaved) {
@@ -67,18 +71,27 @@ function FindPage() {
     } else if (card?.isSaved === false) {
       card = { ...card, isSaved: true };
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const Response = await service.patchCard(id, card);
     allCards();
-  };
+  }
 
+  const handleLocation = (loc:string)=>{
+    setSloc(loc)
+  }
+  const handleRole = (role:string)=>{
+    setSrole(role)
+  }
   return (
     <Box data-testid="findPage">
       <FindJobs header={<Header location={location}  />} sidepane={<Sidepane  setDesc={()=>{setDescCard(false)}}
         findPage={
           <Box >
             <Box sx={{ display: 'flex', }} data-testid='searchFilter'>
-              <SearchJob skills={searchJobskills} locations={searchJobLocation} />
+              <SearchJob skills={searchJobskills} locations={searchJobLocation} getLoc={handleLocation} getRole={handleRole} />
+              <Box onClick={() => {setDista(distance.filter(ele => arrayValue.includes(ele)))}}>
               <Filter />
+              </Box>
             </Box>
             <Box sx={{ paddingTop:'36px' }}>
               <Typography variant='h2'> {heading1} </Typography>
@@ -86,8 +99,9 @@ function FindPage() {
             </Box>
             <Box sx={{ transform: 'translateY(5%)' }}>
         <TabContext value={tabNo}>
-          <TabPanel value={"1"} sx={{display:"grid",gridGap:'18px',transform: 'translate(-25px,20px)',boxShadow:'none'}}>
-              {cards.map((card, key) => {
+          <TabPanel value={"1"} sx={{display:"grid",gridGap:'2vh',transform: 'translate(-25px,20px)',boxShadow:'none'}}>
+              {cards.filter(card => dista.includes(card.filter.distance)).filter(card => {if(sloc===''|| sloc===undefined){return true}return card.filter.location === sloc })
+                     .filter(card => {if(srole===''||srole===undefined){return true}return card.job === srole }).map((card, key) => {
                 return (<Box  onClick={() => { setDescCard(true); setId(card.id)}} key={key}>
                   <Cards
                     icons={card.icons}
@@ -99,32 +113,34 @@ function FindPage() {
                     car={card.car}
                     train={card.train}
                     postedTime={card.postedTime}
-                    state={true} /></Box>)
+                    state={true} />
+                    </Box>)
               })}
-              
         </TabPanel>
-        <TabPanel value={"2"} sx={{display:"grid",gridTemplateColumns:"320px 320px 320px",width:"950px",
-                                  columnGap:'50px',rowGap:'48px',transform: 'translate(-25px,-5px)'}}>
-              { cards.map((card, key) => {
-                return (<Box onClick={() => {setDescCard(true); setId(card.id);setTabNo('1');heading1=PageHeading1[1];heading2=PageHeading2[1]; }} key={key}>
-                  <Cards
-                    icons={card.icons}
-                    job={card.job}
-                    company={card.company}
-                    location={card.location}
-                    bike={card.bike}
-                    bus={card.bike}
-                    car={card.car}
-                    train={card.train}
-                    postedTime={card.postedTime}
-                    state={false} /></Box>)
-              })
-              }
-              </TabPanel>
+               <TabPanel value={"2"} sx={{display:"grid",gridTemplateColumns:"43vh 43vh 42vh",width:"130vh",
+                                        rowGap:'2vh',transform: 'translate(-25px,-5px)'}}>
+                    { cards.filter(card => dista.includes(card.filter.distance)).filter(card => {if(sloc===''|| sloc===undefined){return true}return card.filter.location === sloc })
+                     .filter(card => {if(srole===''||srole===undefined){return true}return card.job === srole }).map((card, key) => {
+                      return (<Box onClick={() => {setDescCard(true); setId(card.id);setTabNo('1');heading1=PageHeading1[1];heading2=PageHeading2[1]; }} key={key}>
+                        <Cards
+                          icons={card.icons}
+                          job={card.job}
+                          company={card.company}
+                          location={card.location}
+                          bike={card.bike}
+                          bus={card.bike}
+                          car={card.car}
+                          train={card.train}
+                          postedTime={card.postedTime}
+                          state={false} />
+                          </Box>)
+                    })
+                    }
+                    </TabPanel> 
               </TabContext>
 
               {descCard &&
-                <Box sx={{ position: 'absolute', left: '653px', top: "41px" }}>
+                <Box sx={{ position: 'absolute', left: '76vh', top: "41px" }}>
                   <DescCard icon={cards.at(id)?.icons} title={cards.at(id)?.job} company={cards.at(id)?.company} address={cards.at(id)?.location}
                     postedTime={cards.at(id)?.postedTime} handleSave={()=>{handleSave(id)}} isSaved={cards.at(id)?.isSaved ? "UnSave" : "Save"} />
                 </Box>

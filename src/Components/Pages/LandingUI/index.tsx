@@ -4,13 +4,14 @@ import HomePageStepper from "../../Organisms/Stepper";
 import { LandingTemplate } from "../../Template/LandingPage";
 import { areas, cities, jobSkills, landuitext } from "../../../Data/Cities";
 import { ReactComponent as Logo } from "../../../images/icons/logo-1.svg";
-import Image from "../../Molecules/MapView/Map";
+import Image from "../../Molecules/MapView/AqiImage";
 import roadmap from "../../../images/icons/roadmap.svg";
 import aqi from "../../../images/icons/aqibord.svg";
 import man from "../../../images/icons/man.svg";
 import { theme } from "../../../Theme";
 import paint from "../../../images/icons/paint.svg";
 import CityInput, { OptionProp } from "../../Molecules/InputBase";
+import { useNavigate } from "react-router-dom";
 
 const locZeroEmp = {
   width: "281px",
@@ -42,11 +43,15 @@ function LandingUI() {
   const [location, setLocation] = useState<OptionProp>({ area: "" });
   const [jobLocation, setJobLocation] = useState<OptionProp[]>([]);
   const [skill, setSkill] = useState<OptionProp[]>([]);
-  const [activeStep, setActiveStep] = React.useState<number>(0);
+  const [activeStep, setActiveStep] = React.useState<number>(0)
+  const navigate = useNavigate()
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+    if((location.area !=='' && activeStep===0)|| (jobLocation.length !== 0 && activeStep===1)  )
+    { setActiveStep((prevActiveStep) => prevActiveStep + 1)}
+    else if(skill.length !== 0 && activeStep===2)
+    {navigate('/home/'+location.area)}
+  }
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -138,7 +143,7 @@ function LandingUI() {
     <Box>
       <LandingTemplate
         homestepper={
-          <HomePageStepper  navigateUrl={'/home/'+location.area}
+          <HomePageStepper
             step1={
               <CityInput
                 placeholder={"Enter your Location"}
@@ -175,6 +180,7 @@ function LandingUI() {
             }
             activeStep={activeStep}
             handleBack={handleBack}
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             handleNext={handleNext}
           />
         }
@@ -185,4 +191,4 @@ function LandingUI() {
   );
 }
 
-export default LandingUI;
+export default LandingUI

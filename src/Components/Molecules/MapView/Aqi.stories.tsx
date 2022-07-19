@@ -5,7 +5,7 @@ import aqi894 from "../../../images/icons/aqibord.svg"
 import aqi2 from "../../../images/icons/2aqi.svg"
 import man from "../../../images/icons/man.svg"
 import paint from "../../../images/icons/paint.svg"
-import AqiImage from './Map';
+import AqiImage from './AqiImage';
 
 export default {
   title: 'Molecules / MockPictures',

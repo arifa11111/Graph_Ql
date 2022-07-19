@@ -5,7 +5,7 @@ import HomePageStepper from '.';
 import { fireEvent } from '@storybook/testing-library';
 
 const fun = () => {
-  render(<BrowserRouter><HomePageStepper navigateUrl='/home/' /></BrowserRouter>)
+  render(<BrowserRouter><HomePageStepper  /></BrowserRouter>)
 }
 describe('<Stepper tests>', () => {
   test('checks whether HomePageStepper component renders or not', () => {

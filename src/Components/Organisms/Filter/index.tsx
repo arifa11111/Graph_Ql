@@ -12,7 +12,7 @@ import { FilterList } from '../../Molecules/FilterList';
 import Chips from '../../Atoms/Chips';
 import { Icons } from '../../Atoms/IconsAtom';
 
-let arrayValue: string[] = [];
+export let arrayValue: string[] = [];
 arrayValue.push("Green Commute Routes")
 const storeLabel = (e: React.SyntheticEvent) => {
 
@@ -28,7 +28,6 @@ const storeLabel = (e: React.SyntheticEvent) => {
     else {
       arrayValue.push((e.target as HTMLInputElement).value)
     }
-
   }
   else {
     arrayValue = arrayValue.filter(val => val !== (e.target as HTMLInputElement).value);
@@ -54,7 +53,7 @@ export const Filter = () => {
     setFooKey(fooKey + 1);
     arrayValue = []
   }
-  
+
   return (
     <Box data-testid="FilterTestId" sx={{width: '0px'}}>
       <ButtonComponent variant="contained" startIcon={<FilterIcon />} onClick={handleOpen} label="Filter" style={{
@@ -64,7 +63,7 @@ export const Filter = () => {
         fontSize: '14px',
         color: "black",
         lineHeight: '22px',
-        marginLeft:'36px',
+        marginLeft:'2vh',
         boxShadow:'none',
         marginTop:"6px",
         backgroundColor: theme.palette.light?.four,
@@ -73,7 +72,7 @@ export const Filter = () => {
         fontFamily: theme.typography.body1.fontFamily
       }}></ButtonComponent>
 
-      <Box className='filterBox ' sx={{position:'absolute',left:'315px',top:'220px',}}>
+      <Box className='filterBox ' sx={{position:'absolute',left:'43vh',top:'220px',}}>
         <ChipBox data-testid="ChipBox" sx={{}}>
           {arrayValue.map((item, key) => <Chips onDelete={()=>{delete arrayValue[key];setChipValue(!chipValue)}} key={key} label={item} 
                     size="small" sx={{ backgroundColor: "white", borderRadius: "8px", marginLeft: "8px", height: "32px", marginTop: "8px",
@@ -95,7 +94,7 @@ export const Filter = () => {
         closeAfterTransition
       >
         <Fade in={open}>
-          <form key={fooKey} style={{width:"546px"}}>
+          <form key={fooKey} style={{width:"71vh"}}>
 
             <Box className="innerBox" sx={style}>
               <div style={{ display: "flex", justifyContent: "end",marginTop:"-30px" }}><Icons onClick={handleClose} style={{ cursor: "pointer",transform:" translate(-1px, 11px)"}} source={closeIcon} height={"25px"} /></div>
@@ -118,15 +117,15 @@ export const Filter = () => {
                 <FilterList title={transport[0]} onChange={storeLabel} labelArray={transport.slice(1)} />
 
               </Grid>
-              <div style={{ display: "flex", justifyContent: "end", paddingBottom: "0px",marginRight:"6px",transform:'translateY(-26px)' }}>
+              <div style={{ display: "flex", justifyContent: "end",marginRight:"1vh",position:'absolute',top:'55vh',right:'4vh' }}>
 
                 <Typography onClick={resetFilter} sx={{
-                  fontWeight: theme.typography.body1.fontWeight,
-                  fontFamily: theme.typography.body1.fontFamily, cursor: "pointer", marginTop: "32px", color: theme.palette.green?.three
+                  fontWeight: theme.typography.body1.fontWeight,position:'absolute',left:'-24vh',top:'3vh',
+                  fontFamily: theme.typography.body1.fontFamily, cursor: "pointer", color: theme.palette.green?.three
                 }}>{"Clear All"}
                 </Typography>
 
-                <Button onClick={handleClose} sx={{marginLeft: "25px",marginTop: "25px",backgroundColor: theme.palette.green?.six,textTransform: "none",
+                <Button onClick={handleClose} sx={{backgroundColor: theme.palette.green?.six,textTransform: "none",position:'absolute',top:'2vh',
                                                  width: "101px",height: "32px",boxShadow:'none','&:hover':{backgroundColor: theme.palette.green?.six,boxShadow:'none'}}}
                                  variant='contained' >
                   <Typography variant="caption" sx={{ fontFamily: theme.typography.body1.fontFamily,paddingBottom:'2px', borderRadius:'8px',fontWeight: theme.typography.caption.fontWeight }}>{"Apply"}</Typography>

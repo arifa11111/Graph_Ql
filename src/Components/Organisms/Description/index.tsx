@@ -16,7 +16,7 @@ import { useState } from "react";
 import back from "../../../images/icons/back.svg"
 import { Location } from "../../Molecules/LocationDescription/index"
 import { OlaCard } from "../../Molecules/Ola/index"
-import AqiImage from "../../Molecules/MapView/Map"
+import AqiImage from "../../Molecules/MapView/AqiImage"
 import MapView from "../../../images/icons/mapview.svg"
 import greyRupee from "../../../images/icons/greyrupee.svg"
 import { Upload } from "../UploadResume"

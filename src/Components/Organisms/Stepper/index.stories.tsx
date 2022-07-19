@@ -11,5 +11,5 @@ const Template: Story<any> = args => <BrowserRouter><HomePageStepper {...args}/>
 
 export const stepperOranism = Template.bind({})
 stepperOranism.args = {
-    navigateUrl:'/home/'
+    
 }

@@ -24,6 +24,21 @@ function Sidepane(props: SideProps) {
   const classes = useStyles();
   const [findPage, setFindPage] = useState<string>("1");
 
+  const ListStyle = (text?: string): string | undefined => {
+    if ((findPage === "1" && text === "Find Jobs") || (findPage === "2" && text === "Saved Jobs"))
+    {
+      return classes.hover + " " + classes.active;
+    } 
+    else if (text === "Find Jobs" || text === "Saved Jobs") 
+    {
+      return classes.hover;
+    } 
+    else 
+    {
+      return classes.noHover;
+    }
+  };
+
   const borderStyle = {
     backgroundColor: theme.palette.green?.two,
     zIndex: (theme: { zIndex: { drawer: number } }) => theme.zIndex.drawer + 1,
@@ -57,27 +72,17 @@ function Sidepane(props: SideProps) {
                 button
                 key={key}
                 disableRipple
-                className={
-                  findPage === "1"
-                  ? item.text === "Find Jobs"
-                    ? classes.hover + " " + classes.active
-                    : (item.text === "Saved Jobs" ? classes.hover : classes.noHover) 
-                  : item.text === "Saved Jobs"
-                    ? classes.hover + " " + classes.active
-                    : (item.text === "Find Jobs" ? classes.hover : classes.noHover)
-                }
+                classes={{ root: classes.noHover }}
+                className={ListStyle(item.text)}
                 data-testid={"button-test-" + key}
+                sx={{minHeight:"52px"}}
                 onClick={() => {
                   changePages(item.text);
                 }}
               >
-                {item.text === "Practice Tests" || item.text === "Find Jobs" || item.text === "News & Events" ? (
-                  <Box width="5px" height="10px"></Box>
-                ) : null}
-                {item.text === "Dashboard" ? (
-                  <Box width="12px" height="10px"></Box>
-                ) : null}
-                
+                {(item.text === "Dashboard" || item.text === "Find Jobs") && (
+                  <Box width="3px" height="10px"></Box>
+                )}
                 <Box sx={{ display: "flex", paddingLeft: "25px" }}>
                   <ListItemIcon>
                     <Box className="iconcolor">
@@ -95,11 +100,8 @@ function Sidepane(props: SideProps) {
                   />
                 </Box>
               </ListItem>
-              {findPage === "1" && item.text === "Find Jobs" ? (
-                <Box sx={borderStyle}></Box>
-              ) : findPage === "2" && item.text === "Saved Jobs" ? (
-                <Box sx={borderStyle}></Box>
-              ) : null}
+              {((findPage === "1" && item.text === "Find Jobs") || (findPage === "2" && item.text === "Saved Jobs")) &&
+                <Box sx={borderStyle}></Box>}
             </Box>
           ))}
 
@@ -108,7 +110,7 @@ function Sidepane(props: SideProps) {
           <Box height={"8px"}></Box>
 
           {extraSide.map((item, key) => (
-            <ListItem key={key}>
+            <ListItem key={key} className={classes.noHover}>
               <ListItemIcon sx={{ paddingLeft: "30px" }}>
                 <Box className="iconcolor">
                   <item.icon
@@ -128,14 +130,14 @@ function Sidepane(props: SideProps) {
       <Box
         width="220vh"
         paddingTop="130px"
-        height="1000vh"
-        marginLeft={"-50px"}
+        height="150vh"
+        marginLeft={"-3vh"}
         sx={{ marginTop: "-36px" }}
         className={classes.findcolors}
       >
         <Box
           width="150vh"
-          height="1000vh"
+          height="190vh"
           marginLeft={"50px"}
           className={classes.findcolors}
         >
@@ -186,10 +188,15 @@ const useStyles = makeStyles({
     display: "flex",
   },
 
-  noHover:{
-    "&:hover":{
-      background:'transparent !important'
-    }
+  noHover: {
+    "&:hover": {
+      background: "transparent !important",
+    },
+    "& .iconcolor": {
+      backgroundColor: theme.palette.gray?.three,
+      borderRadius: "50%",
+      padding: "6px 7px 5px 7px",
+    },
   },
 
   typoChange: {
@@ -198,7 +205,9 @@ const useStyles = makeStyles({
       fontFamily: "Montserrat",
       color: theme.palette.black?.two,
     },
+    paddingTop:'4px'
   },
+
   hover: {
     "&:hover": {
       backgroundColor: theme.palette.light?.one + " !important",
@@ -218,8 +227,6 @@ const useStyles = makeStyles({
 
     "&:active": {
       backgroundColor: theme.palette.light?.one + " !important",
-      // borderRight: "4px solid " + theme.palette.green?.two,
-      // borderRadius: "4px",
       "& .iconfill": {
         fill: theme.palette.green?.two + " !important",
       },
@@ -244,8 +251,6 @@ const useStyles = makeStyles({
 
   active: {
     backgroundColor: theme.palette.light?.one + " !important",
-    // borderRight: "4px solid " + theme.palette.green?.two + " !important",
-    // borderRadius: "4px !important",
     "& .iconcolor": {
       backgroundColor: "transparent !important",
     },

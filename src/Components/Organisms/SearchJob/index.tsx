@@ -7,14 +7,29 @@ import { ButtonComponent } from '../../Atoms/Buttons/Button';
 import "./index.css";
 import { Icons } from '../../Atoms/IconsAtom';
 import { theme } from '../../../Theme';
-import { placeholder } from '../../../Data/Cities';
 
-interface SearchProps {
+interface searchProps {
   skills: readonly unknown[],
   locations: readonly unknown[];
+  getLoc:(loc:any)=>void
+  getRole:(role:any)=>void
 }
 
-export const SearchJob = (props: SearchProps) => {
+let loc:string,role:string;
+  export const SearchJob = (props: searchProps) => {
+  const searchLoc = (event: any | null) => {
+    loc=(event.target.innerHTML)
+    if(event.target.value==="") {
+      loc=(event.target.value)
+    }
+  }
+  const searchRole = (event: any | null) => {
+    role=(event.target.innerHTML)
+    if(event.target.value==="") {
+      role=(event.target.value)
+    }
+  }
+  
   return (
     <Box sx={{ paddingTop: '9px' }}>
       <OverallBox data-testid='searchJob' >
@@ -22,18 +37,22 @@ export const SearchJob = (props: SearchProps) => {
           <Work style={{ marginLeft: "15px" }} />
           <Autocomplete fullWidth freeSolo
             options={props.skills}
+            onChange={(event) => searchRole(event)}
             data-testid='skill'
-            renderInput={(params) => <SearchField sx={{ transform: 'translate(-1px,0px)' }} placeholder={placeholder[0]} {...params} />}
+            renderInput={(params) => <SearchField   onChange={(event) => searchRole(event)} 
+              sx={{ transform: 'translate(-1px,0px)' }} placeholder='Search Skills' {...params} />}
           />
         </InnerBox>
         <Icons source={LocationIcon} />
         <Autocomplete fullWidth freeSolo
           options={props.locations}
           disableClearable
+          onChange={(event) => searchLoc(event)}
           data-testid='location'
-          renderInput={(params) => <SearchField sx={{ transform: 'translate(-3px, 1px)'}} placeholder={placeholder[1]} {...params} />}
+          renderInput={(params) => <SearchField  onChange={(event) => searchLoc(event)}
+            sx={{ transform: 'translate(-3px, 1px)' }} placeholder='Location' {...params} />}
         />
-        <ButtonComponent variant='contained' style={{
+        <ButtonComponent variant='contained' onClick={() => {props.getLoc(loc);props.getRole(role)}} style={{
           backgroundColor: theme.palette.green?.three,
           borderRadius: '60%', height: '44px', minWidth: '44px', marginRight: '3px', boxShadow: 'none', padding: '0px 0px'
         }}
@@ -55,8 +74,7 @@ const InnerBox = styled(Box)({
 const OverallBox = styled(Box)({
   height: '50px',
   display: 'flex',
-  minWidth: '887px',
-  width:'100%',
+  width: '108vh',
   alignItems: 'center',
   borderRadius: "32px",
   backgroundColor: "white"

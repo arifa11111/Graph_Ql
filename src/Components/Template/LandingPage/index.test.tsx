@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 const fun=()=>{
     render(<BrowserRouter>
-              <LandingTemplate homestepper={<HomePageStepper navigateUrl='/home/'/>} Logo={<Logo width={"205"} height={"40"} />} />
+              <LandingTemplate homestepper={<HomePageStepper />} Logo={<Logo width={"205"} height={"40"} />} />
         </BrowserRouter>)
 }
 it('stepper should render',() => {

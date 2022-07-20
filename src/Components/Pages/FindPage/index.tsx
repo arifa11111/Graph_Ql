@@ -32,6 +32,19 @@ export interface CardsProps {
     location:string;
   };
 }
+const styles = (theme:any) => ({
+  root: {
+    [theme.breakpoints.down('md')]: {
+      width:'258px'
+    },
+    [theme.breakpoints.up('md')]: {
+      width:'258px'
+    },
+    [theme.breakpoints.up('lg')]: {
+      width:'358px'
+    },
+  },
+})
 let heading1=PageHeading1[0],heading2=PageHeading2[0]
 
 function FindPage() {
@@ -116,12 +129,11 @@ function FindPage() {
                     </Box>)
               })}
         </TabPanel>
-               <TabPanel value={"2"} sx={{display:"grid",gridTemplateColumns:"43vh 43vh 42vh",width:"130vh",
-                                        rowGap:'2vh',transform: 'translate(-25px,-5px)'}}>
+        <TabPanel value={"2"} sx={{display:"flex", width:"1000px", flexWrap:"wrap",justifyContent:"space-between",transform: 'translate(-25px,-5px)'}}>
                     { cards.filter(card => dista.includes(card.filter.distance)).filter(card => {if(sloc===''|| sloc===undefined){return true}return card.filter.location === sloc })
                      .filter(card => {if(srole===''||srole===undefined){return true}return card.job === srole }).map((card, key) => {
-                      return (<Box onClick={() => {setDescCard(true); setId(card.id);setTabNo('1');heading1=PageHeading1[1];heading2=PageHeading2[1]; }} key={key}>
-                        <Cards
+                      return (<Box sx={{width:"33.33%", paddingTop:"15px"}} onClick={() => {setDescCard(true); setId(card.id);setTabNo('1');heading1=PageHeading1[1];heading2=PageHeading2[1]; }} key={key}>
+                       <Cards
                           icons={card.icons}
                           job={card.job}
                           company={card.company}

@@ -36,23 +36,21 @@ let loc:string,role:string;
         <InnerBox>
           <Work style={{ marginLeft: "15px" }} />
           <Autocomplete fullWidth freeSolo
-            options={props.skills}
-            onChange={(event) => searchRole(event)}
+            options={props.skills} onChange={(event) => searchRole(event)}
             data-testid='skill'
-            renderInput={(params) => <SearchField   onChange={(event) => searchRole(event)} 
+            renderInput={(params) => <SearchField data-testid='search'  onChange={(event) => searchRole(event)} 
               sx={{ transform: 'translate(-1px,0px)' }} placeholder='Search Skills' {...params} />}
           />
         </InnerBox>
         <Icons source={LocationIcon} />
         <Autocomplete fullWidth freeSolo
           options={props.locations}
-          disableClearable
-          onChange={(event) => searchLoc(event)}
+          disableClearable onChange={(event) => searchLoc(event)}
           data-testid='location'
           renderInput={(params) => <SearchField  onChange={(event) => searchLoc(event)}
             sx={{ transform: 'translate(-3px, 1px)' }} placeholder='Location' {...params} />}
         />
-        <ButtonComponent variant='contained' onClick={() => {props.getLoc(loc);props.getRole(role)}} style={{
+        <ButtonComponent  variant='contained' onClick={() => {props.getLoc(loc);props.getRole(role)}} style={{
           backgroundColor: theme.palette.green?.three,
           borderRadius: '60%', height: '44px', minWidth: '44px', marginRight: '3px', boxShadow: 'none', padding: '0px 0px'
         }}

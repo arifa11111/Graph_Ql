@@ -22,6 +22,8 @@ interface Props {
   state: boolean;
 }
 
+
+
 function Cards(props: Props) {
   const classes = useStyles();
   const [large, setLarge] = useState<boolean>(props.state);
@@ -46,7 +48,7 @@ function Cards(props: Props) {
       }}
     >
       
-      <Box className={classes.smallCardInner}>
+      <Box className={classes.smallCardInner} >
         <Box className={classes.smalltopCon}>
           <Box sx={{ display: "flex", justifyContent: "space-between" }}>
             <Icons source={props.icons} height="45px" width="45px" />
@@ -99,7 +101,7 @@ function Cards(props: Props) {
             </Box>
           </Box>
         ) : null}
-        <Box
+        <Box 
           className={large ? classes.largebotttomCon : classes.smallbottomCon}
         >
           <Box className={large ? classes.largeBCFT : undefined}>

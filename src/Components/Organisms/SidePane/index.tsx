@@ -137,7 +137,7 @@ function Sidepane(props: SideProps) {
       >
         <Box
           width="150vh"
-          height="190vh"
+          height="148vh"
           marginLeft={"50px"}
           className={classes.findcolors}
         >

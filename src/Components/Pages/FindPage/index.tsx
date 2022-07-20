@@ -2,7 +2,7 @@ import { Box,  Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Header } from '../../Organisms/Header'
 import { SearchJob } from '../../Organisms/SearchJob'
-import { Filter } from '../../Organisms/Filter/index'
+import { Filter,arrayValue } from '../../Organisms/Filter/index'
 import FindJobs from '../../Template/FindJobs'
 import { theme } from '../../../Theme/index'
 import Cards from '../../Organisms/Cards'
@@ -12,7 +12,6 @@ import { TabContext,  TabPanel } from "@mui/lab";
 import { useParams } from 'react-router';
 import * as service from "../../../service/service";
 import Sidepane from '../../Organisms/SidePane';
-import { arrayValue } from '../../Organisms/Filter/index'
 
 
 export interface CardsProps {

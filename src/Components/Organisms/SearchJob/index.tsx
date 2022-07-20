@@ -8,7 +8,7 @@ import "./index.css";
 import { Icons } from '../../Atoms/IconsAtom';
 import { theme } from '../../../Theme';
 
-interface searchProps {
+interface SearchProps {
   skills: readonly unknown[],
   locations: readonly unknown[];
   getLoc:(loc:any)=>void
@@ -16,7 +16,7 @@ interface searchProps {
 }
 
 let loc:string,role:string;
-  export const SearchJob = (props: searchProps) => {
+  export const SearchJob = (props: SearchProps) => {
   const searchLoc = (event: any | null) => {
     loc=(event.target.innerHTML)
     if(event.target.value==="") {

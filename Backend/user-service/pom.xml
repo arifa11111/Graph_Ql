@@ -8,20 +8,20 @@
 		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.jobservice</groupId>
-	<artifactId>job-service</artifactId>
+	<groupId>com.userservice</groupId>
+	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>job-service</name>
-	<description> project for job-service</description>
+	<name>user-service</name>
+	<description> project for user-service</description>
 	<properties>
-			<sonar.organization>boot-camp-45</sonar.organization>
-			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-			<sonar.sources>src/main/java</sonar.sources>
-			<sonar.language>java</sonar.language>
-			<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-			<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-			<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
-			<java.version>11</java.version>
+		<sonar.organization>boot-camp-45</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.sources>src/main/java</sonar.sources>
+		<sonar.language>java</sonar.language>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -47,7 +47,6 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

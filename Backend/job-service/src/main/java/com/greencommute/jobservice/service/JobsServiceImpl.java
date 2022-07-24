@@ -17,4 +17,20 @@ public class JobsServiceImpl implements JobsService{
     public List<Job> findAll() {
         return jobsRepository.findAll();
     }
+
+    public Job findJobById(int jobId) {
+        return jobsRepository.findByjobId(jobId);
+    }
+
+    @Override
+    public Job saveJob(Job job) {
+        return jobsRepository.save(job);
+    }
+
+    @Override
+    public void deleteById(int jobId) {
+         jobsRepository.deleteById(jobId);
+    }
+
+
 }
